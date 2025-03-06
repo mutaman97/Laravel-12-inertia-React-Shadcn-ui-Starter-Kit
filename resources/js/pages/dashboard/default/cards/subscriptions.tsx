@@ -1,8 +1,8 @@
-"use client";
+'use client'
 
-import { Bar, BarChart, Line, LineChart, ResponsiveContainer } from "recharts";
+import { Bar, BarChart, ResponsiveContainer } from 'recharts'
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 const data = [
   {
@@ -37,7 +37,7 @@ const data = [
     revenue: 26475,
     subscription: 189,
   },
-];
+]
 
 export default function SubscriptionsCard() {
   return (
@@ -47,7 +47,7 @@ export default function SubscriptionsCard() {
       </CardHeader>
       <CardContent>
         <div className="text-2xl font-bold">+2350</div>
-        <p className="text-xs text-muted-foreground">+180.1% from last month</p>
+        <p className="text-muted-foreground text-xs">+180.1% from last month</p>
         <div className="mt-4 h-[80px]">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={data}>
@@ -55,9 +55,9 @@ export default function SubscriptionsCard() {
                 dataKey="subscription"
                 style={
                   {
-                    fill: "var(--theme-primary)",
+                    fill: 'var(--theme-primary)',
                     opacity: 1,
-                    "--theme-primary": `hsl(var(--primary))`,
+                    '--theme-primary': `hsl(var(--primary))`,
                   } as React.CSSProperties
                 }
               />
@@ -66,5 +66,5 @@ export default function SubscriptionsCard() {
         </div>
       </CardContent>
     </Card>
-  );
+  )
 }

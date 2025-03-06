@@ -1,40 +1,40 @@
-"use client";
+'use client'
 
-import { Line, LineChart, ResponsiveContainer, Tooltip } from "recharts";
+import { Line, LineChart, ResponsiveContainer, Tooltip } from 'recharts'
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ExportButton } from "@/components/card-action-menus";
+import { ExportButton } from '@/components/card-action-menus'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
 const data = [
   {
     average: 400,
-    today: 240
+    today: 240,
   },
   {
     average: 300,
-    today: 139
+    today: 139,
   },
   {
     average: 200,
-    today: 980
+    today: 980,
   },
   {
     average: 278,
-    today: 390
+    today: 390,
   },
   {
     average: 189,
-    today: 480
+    today: 480,
   },
   {
     average: 239,
-    today: 380
+    today: 380,
   },
   {
     average: 349,
-    today: 430
-  }
-];
+    today: 430,
+  },
+]
 
 export default function MetricCard({ className }: { className?: string }) {
   return (
@@ -43,9 +43,7 @@ export default function MetricCard({ className }: { className?: string }) {
         <div className="flex justify-between">
           <div>
             <CardTitle className="text-base">Exercise Minutes</CardTitle>
-            <CardDescription>
-              Your exercise minutes are ahead of where you normally are.
-            </CardDescription>
+            <CardDescription>Your exercise minutes are ahead of where you normally are.</CardDescription>
           </div>
           <ExportButton />
         </div>
@@ -59,34 +57,29 @@ export default function MetricCard({ className }: { className?: string }) {
                 top: 5,
                 right: 10,
                 left: 10,
-                bottom: 0
-              }}>
+                bottom: 0,
+              }}
+            >
               <Tooltip
                 content={({ active, payload }) => {
                   if (active && payload && payload.length) {
                     return (
-                      <div className="rounded-lg border bg-background p-2 shadow-sm">
+                      <div className="bg-background rounded-lg border p-2 shadow-sm">
                         <div className="grid grid-cols-2 gap-2">
                           <div className="flex flex-col">
-                            <span className="text-[0.70rem] uppercase text-muted-foreground">
-                              Average
-                            </span>
-                            <span className="font-bold text-muted-foreground">
-                              {payload[0].value}
-                            </span>
+                            <span className="text-muted-foreground text-[0.70rem] uppercase">Average</span>
+                            <span className="text-muted-foreground font-bold">{payload[0].value}</span>
                           </div>
                           <div className="flex flex-col">
-                            <span className="text-[0.70rem] uppercase text-muted-foreground">
-                              Today
-                            </span>
+                            <span className="text-muted-foreground text-[0.70rem] uppercase">Today</span>
                             <span className="font-bold">{payload[1].value}</span>
                           </div>
                         </div>
                       </div>
-                    );
+                    )
                   }
 
-                  return null;
+                  return null
                 }}
               />
               <Line
@@ -95,13 +88,13 @@ export default function MetricCard({ className }: { className?: string }) {
                 dataKey="average"
                 activeDot={{
                   r: 6,
-                  style: { fill: "var(--theme-primary)", opacity: 0.25 }
+                  style: { fill: 'var(--theme-primary)', opacity: 0.25 },
                 }}
                 style={
                   {
-                    stroke: "var(--theme-primary)",
+                    stroke: 'var(--theme-primary)',
                     opacity: 0.25,
-                    "--theme-primary": `hsl(var(--primary))`
+                    '--theme-primary': `hsl(var(--primary))`,
                   } as React.CSSProperties
                 }
               />
@@ -111,12 +104,12 @@ export default function MetricCard({ className }: { className?: string }) {
                 strokeWidth={2}
                 activeDot={{
                   r: 8,
-                  style: { fill: "var(--theme-primary)" }
+                  style: { fill: 'var(--theme-primary)' },
                 }}
                 style={
                   {
-                    stroke: "var(--theme-primary)",
-                    "--theme-primary": `hsl(var(--primary))`
+                    stroke: 'var(--theme-primary)',
+                    '--theme-primary': `hsl(var(--primary))`,
                   } as React.CSSProperties
                 }
               />
@@ -125,5 +118,5 @@ export default function MetricCard({ className }: { className?: string }) {
         </div>
       </CardContent>
     </Card>
-  );
+  )
 }

@@ -1,8 +1,8 @@
-"use client";
+'use client'
 
-import { Bar, BarChart, Line, LineChart, ResponsiveContainer } from "recharts";
+import { Line, LineChart, ResponsiveContainer } from 'recharts'
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 const data = [
   {
@@ -37,7 +37,7 @@ const data = [
     revenue: 26475,
     subscription: 189,
   },
-];
+]
 
 export default function TotalRevenueCard() {
   return (
@@ -47,7 +47,7 @@ export default function TotalRevenueCard() {
       </CardHeader>
       <CardContent>
         <div className="text-2xl font-bold">$15,231.89</div>
-        <p className="text-xs text-muted-foreground">+20.1% from last month</p>
+        <p className="text-muted-foreground text-xs">+20.1% from last month</p>
         <div className="h-[80px]">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart
@@ -65,12 +65,12 @@ export default function TotalRevenueCard() {
                 dataKey="revenue"
                 activeDot={{
                   r: 6,
-                  style: { fill: "var(--theme-primary)", opacity: 0.25 },
+                  style: { fill: 'var(--theme-primary)', opacity: 0.25 },
                 }}
                 style={
                   {
-                    stroke: "var(--theme-primary)",
-                    "--theme-primary": `hsl(var(--primary))`,
+                    stroke: 'var(--theme-primary)',
+                    '--theme-primary': `hsl(var(--primary))`,
                   } as React.CSSProperties
                 }
               />
@@ -79,5 +79,5 @@ export default function TotalRevenueCard() {
         </div>
       </CardContent>
     </Card>
-  );
+  )
 }
