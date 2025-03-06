@@ -62,17 +62,20 @@ export default function MetricCard({ className }: { className?: string }) {
             >
               <Tooltip
                 content={({ active, payload }) => {
-                  if (active && payload && payload.length) {
+                  if (active && payload && payload.length > 0) {
+                    const averageValue = payload[0].payload.average as number
+                    const todayValue = payload[1].payload.today as number
+
                     return (
                       <div className="bg-background rounded-lg border p-2 shadow-sm">
                         <div className="grid grid-cols-2 gap-2">
                           <div className="flex flex-col">
                             <span className="text-muted-foreground text-[0.70rem] uppercase">Average</span>
-                            <span className="text-muted-foreground font-bold">{payload[0].value}</span>
+                            <span className="text-muted-foreground font-bold">{averageValue}</span>
                           </div>
                           <div className="flex flex-col">
                             <span className="text-muted-foreground text-[0.70rem] uppercase">Today</span>
-                            <span className="font-bold">{payload[1].value}</span>
+                            <span className="font-bold">{todayValue}</span>
                           </div>
                         </div>
                       </div>

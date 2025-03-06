@@ -1,9 +1,9 @@
-import MainLayout from "@/components/main-layout";
+import MainLayout from '@/components/main-layout'
 
 export default function AuthLayout({
-  children
+  children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
-  return <MainLayout>{children}</MainLayout>;
+  return <MainLayout>{children}</MainLayout>
 }
