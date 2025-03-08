@@ -4,10 +4,8 @@ import SingleDot from '@/components/icons/single-dot'
 import { Card } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
 import { ApexOptions } from 'apexcharts'
-import dynamic from 'next/dynamic'
 import { HTMLAttributes } from 'react'
-
-const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
+import Chart from 'react-apexcharts'
 
 type Props = HTMLAttributes<HTMLDivElement>
 

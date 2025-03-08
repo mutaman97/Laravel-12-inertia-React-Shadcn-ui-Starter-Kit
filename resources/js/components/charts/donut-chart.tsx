@@ -1,12 +1,10 @@
 'use client'
 
+import { useAppearance } from '@/hooks/use-appearance'
 import { baseChartOptions } from '@/lib/base-chart-options'
 import { ApexOptions } from 'apexcharts'
 import merge from 'lodash.merge'
-import { useTheme } from 'next-themes'
-import dynamic from 'next/dynamic'
-
-const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
+import Chart from 'react-apexcharts'
 
 interface Props {
   width?: string
@@ -21,7 +19,8 @@ interface Props {
 }
 
 const DonutChart = (props: Props) => {
-  const { theme } = useTheme()
+  const { appearance } = useAppearance()
+
   const {
     colors,
     legend = false,
@@ -37,7 +36,7 @@ const DonutChart = (props: Props) => {
   const chartOptions = merge(baseChartOptions(), {
     stroke: {
       width: strokeWidth,
-      colors: [theme === 'dark' ? '#1f2937' : '#fff'],
+      colors: [appearance === 'dark' ? '#1f2937' : '#fff'],
     },
     labels: labels,
     colors: colors,

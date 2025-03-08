@@ -1,9 +1,7 @@
 'use client'
 
 import { ApexOptions } from 'apexcharts'
-import dynamic from 'next/dynamic'
-
-const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
+import Chart from 'react-apexcharts'
 
 interface Props {
   height?: number

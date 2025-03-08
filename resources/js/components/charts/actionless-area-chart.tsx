@@ -1,11 +1,7 @@
-'use client'
-
-import { baseChartOptions } from '@/lib/base-chart-options'
 import { ApexOptions } from 'apexcharts'
 import merge from 'lodash.merge'
-import dynamic from 'next/dynamic'
-
-const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
+import React from 'react'
+import Chart from 'react-apexcharts'
 
 interface Props {
   height?: number
@@ -15,8 +11,23 @@ interface Props {
   chartCategories: string[]
 }
 
-const ActionlessAreaChart = (props: Props) => {
+const ActionlessAreaChart: React.FC<Props> = props => {
   const { height = 120, colors, strokeWidth = 2, chartSeries, chartCategories } = props
+
+  const baseChartOptions = () => ({
+    chart: {
+      type: 'area',
+      toolbar: {
+        show: false,
+      },
+    },
+    stroke: {
+      curve: 'smooth',
+    },
+    markers: {
+      size: 5,
+    },
+  })
 
   const areaChartOptions = merge(baseChartOptions(), {
     stroke: { show: true, width: strokeWidth },

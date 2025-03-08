@@ -1,33 +1,36 @@
 import CodeCopy from '@/components/code-copy'
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import fs from 'fs'
-import dynamic from 'next/dynamic'
-import { HTMLAttributes } from 'react'
+import React, { lazy, Suspense } from 'react'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
-const ComponentLoader = dynamic(() => import('@/components/component-loader'), {
-  ssr: false,
-  loading: () => <p className="text-center">Loading...</p>,
-})
+// Lazy load the ComponentLoader
+const ComponentLoader = lazy(() => import('@/components/component-loader'))
 
 interface Props {
   title: string
   description?: string
   componentPath: string
-  Component: (props: HTMLAttributes<HTMLDivElement>) => JSX.Element
+  Component: (props: React.HTMLAttributes<HTMLDivElement>) => JSX.Element
 }
 
-const ComponentViewer = (props: Props) => {
+const ComponentViewer: React.FC<Props> = props => {
   const { title, description, Component, componentPath } = props
 
-  // Read the source code from component path
-  const sourceCode = fs.readFileSync(componentPath, 'utf-8')
+  // Fetch the source code from the backend (Laravel)
+  const [sourceCode, setSourceCode] = React.useState<string>('')
+
+  React.useEffect(() => {
+    fetch(componentPath) // the error is in this line
+      .then(response => response.text())
+      .then(data => setSourceCode(data))
+      .catch(error => console.error('Failed to load source code:', error))
+  }, [componentPath])
 
   return (
     <div>
-      <h6 className="text-xl font-semibold"> {title}</h6>
+      <h6 className="text-xl font-semibold">{title}</h6>
       {description && <p className="text-secondary-foreground mt-2 text-sm">{description}</p>}
 
       <Tabs defaultValue="Preview" className="border-border mt-4 overflow-hidden rounded-2xl border shadow">
@@ -41,7 +44,9 @@ const ComponentViewer = (props: Props) => {
         </TabsList>
 
         <TabsContent value="Preview" className="mt-0 p-4">
-          <ComponentLoader ChildComponent={<Component />} />
+          <Suspense fallback={<p className="text-center">Loading...</p>}>
+            <ComponentLoader ChildComponent={<Component />} />
+          </Suspense>
         </TabsContent>
 
         <TabsContent value="Code" className="mt-0">

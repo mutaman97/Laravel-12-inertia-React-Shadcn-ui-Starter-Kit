@@ -1,8 +1,8 @@
 'use client'
 
 import { Skeleton } from '@/components/ui/skeleton'
-import { useTheme } from 'next-themes'
-import Image, { ImageProps } from 'next/image'
+import { useAppearance } from '@/hooks/use-appearance'
+// import Image, { ImageProps } from 'next/image'
 import { useEffect, useState } from 'react'
 
 interface Props extends Omit<ImageProps, 'src'> {
@@ -11,18 +11,19 @@ interface Props extends Omit<ImageProps, 'src'> {
 }
 
 const ThemeBasedImage = (props: Props) => {
-  const { theme } = useTheme()
+  const { appearance } = useAppearance()
+
   const [imgUrl, setImgUrl] = useState<string>('')
   const { darkSrc, lightSrc, width, height, alt, ...leftProps } = props
 
   useEffect(() => {
-    setImgUrl(theme === 'light' ? lightSrc : darkSrc)
-  }, [theme, lightSrc, darkSrc])
+    setImgUrl(appearance === 'light' ? lightSrc : darkSrc)
+  }, [appearance, lightSrc, darkSrc])
 
   return (
     <>
       {imgUrl ? (
-        <Image alt={alt} src={imgUrl} width={width} height={height} {...leftProps} />
+        <img alt={alt} src={imgUrl} width={width} height={height} {...leftProps} />
       ) : (
         <Skeleton className="bg-card rounded-xl" style={{ width: `${width}px`, height: `${height}px` }} />
       )}

@@ -1,11 +1,7 @@
-'use client'
-
-import { baseChartOptions } from '@/lib/base-chart-options'
 import { ApexOptions } from 'apexcharts'
 import merge from 'lodash.merge'
-import dynamic from 'next/dynamic'
-
-const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
+import React from 'react'
+import Chart from 'react-apexcharts'
 
 interface Props {
   grid?: boolean
@@ -20,7 +16,7 @@ interface Props {
   legendHorizontalPosition?: 'left' | 'right' | 'center'
 }
 
-const LineChart = (props: Props) => {
+const LineChart: React.FC<Props> = props => {
   const {
     grid = true,
     height = 330,
@@ -33,6 +29,21 @@ const LineChart = (props: Props) => {
     chartSeries,
     chartCategories,
   } = props
+
+  const baseChartOptions = () => ({
+    chart: {
+      type: 'line',
+      toolbar: {
+        show: false,
+      },
+    },
+    stroke: {
+      curve: 'smooth',
+    },
+    markers: {
+      size: 5,
+    },
+  })
 
   const chartOptions = merge(baseChartOptions(), {
     colors: colors,
@@ -62,7 +73,6 @@ const LineChart = (props: Props) => {
       show: true,
       tickAmount: 5,
       labels: {
-        // formatter: (value) => value / 1000 + "K",
         style: { colors: 'hsl(var(--secondary-foreground))' },
       },
     },
@@ -84,7 +94,6 @@ const LineChart = (props: Props) => {
       fontSize: '14px',
       horizontalAlign: legendHorizontalPosition,
       itemMargin: { horizontal: 12 },
-      // fontFamily: theme.typography.fontFamily,
       onItemClick: { toggleDataSeries: false },
       onItemHover: { highlightDataSeries: false },
       markers: { radius: 30, width: 8, height: 8 },
@@ -123,7 +132,6 @@ const LineChart = (props: Props) => {
               style: {
                 fontWeight: 500,
                 colors: 'hsl(var(--secondary-foreground))',
-                // fontFamily: theme.typography.fontFamily,
               },
             },
           },

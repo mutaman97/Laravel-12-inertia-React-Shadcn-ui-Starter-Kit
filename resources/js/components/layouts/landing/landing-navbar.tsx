@@ -3,9 +3,9 @@ import ThemeToggle from '@/components/theme-toggle'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
+import { Link } from '@inertiajs/react'
 import { Menu } from 'lucide-react'
 import { nanoid } from 'nanoid'
-import Link from 'next/link'
 
 const LandingNavbar = () => {
   return (

@@ -7,10 +7,8 @@ import { cn } from '@/lib/utils'
 import { ApexOptions } from 'apexcharts'
 import merge from 'lodash.merge'
 import { MoreHorizontal } from 'lucide-react'
-import dynamic from 'next/dynamic'
 import { HTMLAttributes } from 'react'
-
-const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
+import Chart from 'react-apexcharts'
 
 type Props = HTMLAttributes<HTMLDivElement>
 
