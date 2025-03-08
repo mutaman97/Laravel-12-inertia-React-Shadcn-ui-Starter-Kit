@@ -1,47 +1,45 @@
-"use client";
+'use client'
 
-import { cn } from "@/lib/utils";
-import merge from "lodash.merge";
-import { HTMLAttributes } from "react";
-import { Card } from "@/components/ui/card";
-import { MoreHorizontal } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { baseChartOptions } from "@/lib/base-chart-options";
-import { ApexOptions } from "apexcharts";
-import { format } from "@/lib/currency";
-import dynamic from "next/dynamic";
+import { Card } from '@/components/ui/card'
+import { baseChartOptions } from '@/lib/base-chart-options'
+import { format } from '@/lib/currency'
+import { cn } from '@/lib/utils'
+import { ApexOptions } from 'apexcharts'
+import merge from 'lodash.merge'
+import dynamic from 'next/dynamic'
+import { HTMLAttributes } from 'react'
 
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
-type Props = HTMLAttributes<HTMLDivElement>;
+type Props = HTMLAttributes<HTMLDivElement>
 
 const Statistics = ({ className, ...props }: Props) => {
   // REACT CHART DATA SERIES
   const chartSeries = [
     {
-      name: "Sales",
+      name: 'Sales',
       data: [30000, 20000, 45000, 40000, 48000, 25000, 40000],
     },
-  ];
+  ]
 
   // REACT CHART CATEGORIES LABEL
-  const chartCategories = ["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
+  const chartCategories = ['Sat', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri']
 
   // REACT CHART OPTIONS
   const chartOptions = merge(baseChartOptions(), {
     stroke: { width: 0 },
-    colors: ["hsl(var(--icon-muted))", "hsl(var(--icon-active))"],
+    colors: ['hsl(var(--icon-muted))', 'hsl(var(--icon-active))'],
     grid: {
       show: true,
       strokeDashArray: 3,
-      borderColor: "hsl(var(--border))",
+      borderColor: 'hsl(var(--border))',
     },
     xaxis: {
       crosshairs: { show: true },
       categories: chartCategories,
       labels: {
         show: true,
-        style: { colors: "hsl(var(--secondary-foreground))" },
+        style: { colors: 'hsl(var(--secondary-foreground))' },
       },
     },
     yaxis: {
@@ -50,23 +48,23 @@ const Statistics = ({ className, ...props }: Props) => {
       max: 50000,
       tickAmount: 5,
       labels: {
-        formatter: (value) => format(value),
-        style: { colors: "hsl(var(--secondary-foreground))" },
+        formatter: value => format(value),
+        style: { colors: 'hsl(var(--secondary-foreground))' },
       },
     },
     plotOptions: {
       bar: {
         borderRadius: 8,
         distributed: true,
-        columnWidth: "20",
-        borderRadiusApplication: "end",
+        columnWidth: '20',
+        borderRadiusApplication: 'end',
       },
     },
 
     tooltip: {
       y: {
         formatter: function (val: number, { dataPointIndex, w }) {
-          return `${w.globals.labels[dataPointIndex]} : $${format(val)}`;
+          return `${w.globals.labels[dataPointIndex]} : $${format(val)}`
         },
       },
     },
@@ -82,7 +80,7 @@ const Statistics = ({ className, ...props }: Props) => {
             labels: {
               style: {
                 fontWeight: 500,
-                colors: "hsl(var(--secondary-foreground))",
+                colors: 'hsl(var(--secondary-foreground))',
                 // fontFamily: theme.typography.fontFamily,
               },
             },
@@ -90,20 +88,15 @@ const Statistics = ({ className, ...props }: Props) => {
         },
       },
     ],
-  } as ApexOptions);
+  } as ApexOptions)
 
   return (
-    <Card className={cn("", className)} {...props}>
-      <p className="text-sm p-6 pb-4 font-semibold">Statistics</p>
+    <Card className={cn('', className)} {...props}>
+      <p className="p-6 pb-4 text-sm font-semibold">Statistics</p>
 
-      <Chart
-        type="bar"
-        height={300}
-        series={chartSeries}
-        options={chartOptions}
-      />
+      <Chart type="bar" height={300} series={chartSeries} options={chartOptions} />
     </Card>
-  );
-};
+  )
+}
 
-export default Statistics;
+export default Statistics

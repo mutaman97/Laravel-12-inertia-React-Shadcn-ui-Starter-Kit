@@ -1,15 +1,8 @@
-import { SVGProps } from "react-html-props";
+import { SVGProps } from 'react-html-props'
 
 const Ecommerce = (props: SVGProps) => {
   return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
         d="M9.49974 1.5883L9.49973 1.58831L9.5023 1.59176C9.60977 1.73589 9.57156 1.9294 9.4715 2.01376C9.39045 2.08208 9.25542 2.08425 9.16154 1.97299C9.06025 1.82964 9.09881 1.64085 9.1973 1.55782L9.19731 1.55783L9.20069 1.55494C9.25727 1.50637 9.31299 1.4956 9.35928 1.50144C9.40817 1.50761 9.4602 1.5343 9.49974 1.5883ZM6.79479 1.55145C6.90244 1.65902 6.91931 1.85266 6.83688 1.9749C6.74308 2.08422 6.60913 2.08169 6.52855 2.01376C6.43006 1.93072 6.3915 1.74194 6.49279 1.59858C6.58366 1.49089 6.71308 1.48947 6.79479 1.55145Z"
         fill="currentColor"
@@ -24,7 +17,7 @@ const Ecommerce = (props: SVGProps) => {
         fill="currentColor"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default Ecommerce;
+export default Ecommerce

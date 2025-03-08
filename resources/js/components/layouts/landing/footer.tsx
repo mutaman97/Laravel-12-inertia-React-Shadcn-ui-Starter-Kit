@@ -1,21 +1,20 @@
-import ShadcnKit from "@/components/icons/shadcn-kit";
+import ShadcnKit from '@/components/icons/shadcn-kit'
 
 const Footer = () => {
   return (
     <div className="container px-4">
-      <div className="flex flex-col md:flex-row items-start justify-between gap-10 mb-16">
+      <div className="mb-16 flex flex-col items-start justify-between gap-10 md:flex-row">
         <div className="w-full md:max-w-[420px]">
-          <ShadcnKit className="text-primary w-[212px] h-[50px] mx-auto md:mx-0" />
-          <p className="font-medium text-secondary-foreground mt-6">
-            ShadcnKit SaaS template is a powerful and versatile software
-            application that provides a comprehensive framework for building and
+          <ShadcnKit className="text-primary mx-auto h-[50px] w-[212px] md:mx-0" />
+          <p className="text-secondary-foreground mt-6 font-medium">
+            ShadcnKit SaaS template is a powerful and versatile software application that provides a comprehensive framework for building and
             delivering cloud-based solutions.
           </p>
         </div>
-        <div className="w-full md:max-w-[650px] flex flex-col md:flex-row justify-between gap-10">
+        <div className="flex w-full flex-col justify-between gap-10 md:max-w-[650px] md:flex-row">
           <div>
-            <p className="text-xl font-semibold mb-[30px]">Products</p>
-            <ul className="flex flex-col gap-5 text-secondary-foreground">
+            <p className="mb-[30px] text-xl font-semibold">Products</p>
+            <ul className="text-secondary-foreground flex flex-col gap-5">
               <li>Project Management</li>
               <li>Multi-tenancy</li>
               <li>Scalability</li>
@@ -26,8 +25,8 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <p className="text-xl font-semibold mb-[30px]">Features</p>
-            <ul className="flex flex-col gap-5 text-secondary-foreground">
+            <p className="mb-[30px] text-xl font-semibold">Features</p>
+            <ul className="text-secondary-foreground flex flex-col gap-5">
               <li>User management</li>
               <li>Workflow automation</li>
               <li>API access</li>
@@ -38,8 +37,8 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <p className="text-xl font-semibold mb-[30px]">Explore</p>
-            <ul className="flex flex-col gap-5 text-secondary-foreground">
+            <p className="mb-[30px] text-xl font-semibold">Explore</p>
+            <ul className="text-secondary-foreground flex flex-col gap-5">
               <li>Docs</li>
               <li>Pricing</li>
               <li>Integrations</li>
@@ -50,11 +49,9 @@ const Footer = () => {
         </div>
       </div>
 
-      <p className="text-lg text-secondary-foreground p-6 text-center">
-        Copyright © 2023 UI-Lib. All rights reserved
-      </p>
+      <p className="text-secondary-foreground p-6 text-center text-lg">Copyright © 2023 UI-Lib. All rights reserved</p>
     </div>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

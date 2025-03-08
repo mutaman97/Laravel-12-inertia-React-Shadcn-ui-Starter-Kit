@@ -1,36 +1,28 @@
-"use client";
+'use client'
 
-import { cn } from "@/lib/utils";
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { MoreHorizontal } from "lucide-react";
-import DonutChart from "@/components/charts/donut-chart";
-import { useTheme } from "next-themes";
+import DonutChart from '@/components/charts/donut-chart'
+import { Button } from '@/components/ui/button'
+import { Card } from '@/components/ui/card'
+import { MoreHorizontal } from 'lucide-react'
+import { useTheme } from 'next-themes'
 
 const Reports = ({ className }: { className?: string }) => {
-  const { theme } = useTheme();
-  const colors =
-    theme === "dark" ? ["#94A3B8", "#CBD5E1"] : ["#CBD5E1", "#334155"];
+  const { theme } = useTheme()
+  const colors = theme === 'dark' ? ['#94A3B8', '#CBD5E1'] : ['#CBD5E1', '#334155']
 
   return (
     <Card className={className}>
-      <div className="p-6 pb-3 flex items-center justify-between">
+      <div className="flex items-center justify-between p-6 pb-3">
         <p className="text-lg font-medium">Reports</p>
 
-        <Button variant="secondary" size="icon" className="w-8 h-8 rounded-md">
-          <MoreHorizontal className="w-4 h-4 text-icon" />
+        <Button variant="secondary" size="icon" className="h-8 w-8 rounded-md">
+          <MoreHorizontal className="text-icon h-4 w-4" />
         </Button>
       </div>
 
-      <DonutChart
-        height={280}
-        legend={true}
-        colors={colors}
-        labels={["Expense", "Revenue"]}
-        chartSeries={[10000, 15000]}
-      />
+      <DonutChart height={280} legend={true} colors={colors} labels={['Expense', 'Revenue']} chartSeries={[10000, 15000]} />
     </Card>
-  );
-};
+  )
+}
 
-export default Reports;
+export default Reports

@@ -1,15 +1,8 @@
-import { SVGProps } from "react-html-props";
+import { SVGProps } from 'react-html-props'
 
 const Clock = (props: SVGProps) => {
   return (
-    <svg
-      width="36"
-      height="36"
-      viewBox="0 0 36 36"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
         d="M18 4.5C10.5442 4.5 4.5 10.5442 4.5 18C4.5 25.4558 10.5442 31.5 18 31.5C25.4558 31.5 31.5 25.4558 31.5 18C31.5 10.5442 25.4558 4.5 18 4.5ZM1.5 18C1.5 8.8873 8.8873 1.5 18 1.5C27.1127 1.5 34.5 8.8873 34.5 18C34.5 27.1127 27.1127 34.5 18 34.5C8.8873 34.5 1.5 27.1127 1.5 18Z"
         fill="currentColor"
@@ -19,7 +12,7 @@ const Clock = (props: SVGProps) => {
         fill="currentColor"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default Clock;
+export default Clock

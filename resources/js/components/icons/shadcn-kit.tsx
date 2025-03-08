@@ -1,15 +1,8 @@
-import { SVGProps } from "react-html-props";
+import { SVGProps } from 'react-html-props'
 
 const ShadcnKit = (props: SVGProps) => {
   return (
-    <svg
-      width="110"
-      height="26"
-      viewBox="0 0 110 26"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg width="110" height="26" viewBox="0 0 110 26" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
         d="M19.1726 21.2941C18.5868 20.7083 18.5868 19.7586 19.1726 19.1728C19.7584 18.587 20.7081 18.587 21.2939 19.1728C21.8797 19.7586 21.8797 20.7083 21.2939 21.2941C20.7081 21.8799 19.7584 21.8799 19.1726 21.2941Z"
         fill="currentColor"
@@ -59,7 +52,7 @@ const ShadcnKit = (props: SVGProps) => {
         fill="currentColor"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default ShadcnKit;
+export default ShadcnKit

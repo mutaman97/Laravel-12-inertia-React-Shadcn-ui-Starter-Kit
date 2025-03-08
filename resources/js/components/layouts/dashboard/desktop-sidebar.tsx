@@ -1,85 +1,85 @@
-"use client";
+'use client'
 
-import Link from "next/link";
-import { cn } from "@/lib/utils";
-import routes from "@/lib/routes";
-import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
-import Shadcn from "@/components/icons/shadcn";
-import { useAppContext } from "@/hooks/useAppContext";
-import ShadcnKit from "@/components/icons/shadcn-kit";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import SidebarItem from "./sidebar-item";
+import Shadcn from '@/components/icons/shadcn'
+import ShadcnKit from '@/components/icons/shadcn-kit'
+import { ScrollArea } from '@/components/ui/scroll-area'
+import { useAppContext } from '@/hooks/useAppContext'
+import routes from '@/lib/routes'
+import { cn } from '@/lib/utils'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react'
+import SidebarItem from './sidebar-item'
 
 const DesktopSidebar: React.FC = () => {
-  const url = usePathname();
-  const [state] = useAppContext();
-  const { openSidenav } = state;
-  const [open, setOpen] = useState<string | null>(null);
-  const [compact, setCompact] = useState<boolean>(false);
+  const url = usePathname()
+  const [state] = useAppContext()
+  const { openSidenav } = state
+  const [open, setOpen] = useState<string | null>(null)
+  const [compact, setCompact] = useState<boolean>(false)
 
   const handleOpen = (value: string | null) => {
     if (value === open) {
-      setOpen(null);
+      setOpen(null)
     } else {
-      setOpen(value);
+      setOpen(value)
     }
-  };
+  }
 
   useEffect(() => {
     if (openSidenav) {
-      setCompact(false);
+      setCompact(false)
     } else {
-      setCompact(true);
+      setCompact(true)
     }
-  }, [openSidenav, setCompact]);
+  }, [openSidenav, setCompact])
 
   const dropDown = (name: string) => {
     if (!openSidenav && compact) {
-      return false;
+      return false
     } else if (open === name) {
-      return true;
+      return true
     } else {
-      return false;
+      return false
     }
-  };
+  }
 
   useEffect(() => {
-    const path = `/${url.split("/")[1]}`;
-    setOpen(path);
-    dropDown(path);
-  }, [url]);
+    const path = `/${url.split('/')[1]}`
+    setOpen(path)
+    dropDown(path)
+  }, [url])
 
   const compactHandler = () => {
     if (!openSidenav) {
-      setCompact((prev) => !prev);
+      setCompact(prev => !prev)
     }
-  };
+  }
 
-  const compactHide = !openSidenav && compact ? "hidden" : "block";
-  const compactSpace = !openSidenav && compact ? "px-6" : "px-4";
+  const compactHide = !openSidenav && compact ? 'hidden' : 'block'
+  const compactSpace = !openSidenav && compact ? 'px-6' : 'px-4'
 
   return (
     <section
       className={cn(
-        "hidden md:block inset-0 z-50 h-full w-full transition-all duration-300 relative",
-        openSidenav ? "max-w-[260px]" : "max-w-[100px]"
+        'relative inset-0 z-50 hidden h-full w-full transition-all duration-300 md:block',
+        openSidenav ? 'max-w-[260px]' : 'max-w-[100px]'
       )}
     >
       <ScrollArea
         onMouseLeave={compactHandler}
         onMouseEnter={compactHandler}
         className={cn(
-          "bg-background hover:w-[260px] overflow-x-hidden transition-all duration-300 absolute top-0 left-0 h-full border border-r border-border shadow",
-          openSidenav ? "w-[260px]" : "w-[100px]"
+          'bg-background border-border absolute top-0 left-0 h-full overflow-x-hidden border border-r shadow transition-all duration-300 hover:w-[260px]',
+          openSidenav ? 'w-[260px]' : 'w-[100px]'
         )}
       >
         {compact ? (
-          <Link href="/" className="flex items-center gap-4 py-6 px-8">
+          <Link href="/" className="flex items-center gap-4 px-8 py-6">
             <Shadcn />
           </Link>
         ) : (
-          <Link href="/" className="flex items-center gap-4 py-6 px-8">
+          <Link href="/" className="flex items-center gap-4 px-8 py-6">
             <ShadcnKit />
           </Link>
         )}
@@ -88,8 +88,8 @@ const DesktopSidebar: React.FC = () => {
           {routes.map(({ title, pages }, key) => {
             return (
               <ul key={key} className="mb-4 flex flex-col gap-1">
-                <li className={cn("mx-3.5 mt-2 mb-5", compactHide)}>
-                  <small className=" font-medium">{title}</small>
+                <li className={cn('mx-3.5 mt-2 mb-5', compactHide)}>
+                  <small className="font-medium">{title}</small>
                 </li>
 
                 {pages.map(({ Icon, name, path, childItems = [] }) => (
@@ -109,12 +109,12 @@ const DesktopSidebar: React.FC = () => {
                   </li>
                 ))}
               </ul>
-            );
+            )
           })}
         </div>
       </ScrollArea>
     </section>
-  );
-};
+  )
+}
 
-export default DesktopSidebar;
+export default DesktopSidebar

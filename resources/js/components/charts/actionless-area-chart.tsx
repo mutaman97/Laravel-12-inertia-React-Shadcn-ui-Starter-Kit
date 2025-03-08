@@ -1,28 +1,22 @@
-"use client";
+'use client'
 
-import merge from "lodash.merge";
-import dynamic from "next/dynamic";
-import { ApexOptions } from "apexcharts";
-import { baseChartOptions } from "@/lib/base-chart-options";
+import { baseChartOptions } from '@/lib/base-chart-options'
+import { ApexOptions } from 'apexcharts'
+import merge from 'lodash.merge'
+import dynamic from 'next/dynamic'
 
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 interface Props {
-  height?: number;
-  colors: string[];
-  strokeWidth?: number;
-  chartSeries: { name: string; data: number[] }[];
-  chartCategories: string[];
+  height?: number
+  colors: string[]
+  strokeWidth?: number
+  chartSeries: { name: string; data: number[] }[]
+  chartCategories: string[]
 }
 
 const ActionlessAreaChart = (props: Props) => {
-  const {
-    height = 120,
-    colors,
-    strokeWidth = 2,
-    chartSeries,
-    chartCategories,
-  } = props;
+  const { height = 120, colors, strokeWidth = 2, chartSeries, chartCategories } = props
 
   const areaChartOptions = merge(baseChartOptions(), {
     stroke: { show: true, width: strokeWidth },
@@ -36,7 +30,7 @@ const ActionlessAreaChart = (props: Props) => {
       },
     },
     fill: {
-      type: "gradient",
+      type: 'gradient',
       gradient: {
         shadeIntensity: 1,
         opacityFrom: 0.8,
@@ -48,16 +42,9 @@ const ActionlessAreaChart = (props: Props) => {
       categories: chartCategories,
       crosshairs: { show: true },
     },
-  } as ApexOptions);
+  } as ApexOptions)
 
-  return (
-    <Chart
-      type="area"
-      height={height}
-      series={chartSeries}
-      options={areaChartOptions}
-    />
-  );
-};
+  return <Chart type="area" height={height} series={chartSeries} options={areaChartOptions} />
+}
 
-export default ActionlessAreaChart;
+export default ActionlessAreaChart

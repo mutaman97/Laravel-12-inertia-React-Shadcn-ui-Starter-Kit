@@ -1,15 +1,8 @@
-import { SVGProps } from "react-html-props";
+import { SVGProps } from 'react-html-props'
 
 const Stripe = (props: SVGProps) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="96"
-      height="40"
-      viewBox="0 0 96 40"
-      fill="none"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="96" height="40" viewBox="0 0 96 40" fill="none" {...props}>
       <g clipPath="url(#clip0_446_28884)">
         <path
           fillRule="evenodd"
@@ -24,7 +17,7 @@ const Stripe = (props: SVGProps) => {
         </clipPath>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
-export default Stripe;
+export default Stripe

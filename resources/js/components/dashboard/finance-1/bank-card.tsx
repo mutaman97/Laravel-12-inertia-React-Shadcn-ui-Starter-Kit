@@ -1,22 +1,22 @@
-import { nanoid } from "nanoid";
-import { cn } from "@/lib/utils";
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { MoreHorizontal, Plus } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import ThemeBasedImage from "@/components/theme-based-image";
-import { HTMLAttributes } from "react";
+import ThemeBasedImage from '@/components/theme-based-image'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { Button } from '@/components/ui/button'
+import { Card } from '@/components/ui/card'
+import { cn } from '@/lib/utils'
+import { MoreHorizontal, Plus } from 'lucide-react'
+import { nanoid } from 'nanoid'
+import { HTMLAttributes } from 'react'
 
-type Props = HTMLAttributes<HTMLDivElement>;
+type Props = HTMLAttributes<HTMLDivElement>
 
 const BankCard = ({ className, ...props }: Props) => {
   return (
-    <Card className={cn("p-6", className)} {...props}>
-      <div className="flex items-start justify-between mb-3">
+    <Card className={cn('p-6', className)} {...props}>
+      <div className="mb-3 flex items-start justify-between">
         <p className="text-lg font-medium">Your Card</p>
 
-        <Button variant="secondary" size="icon" className="w-8 h-8">
-          <MoreHorizontal className="w-4 h-4 text-icon" />
+        <Button variant="secondary" size="icon" className="h-8 w-8">
+          <MoreHorizontal className="text-icon h-4 w-4" />
         </Button>
       </div>
 
@@ -30,36 +30,32 @@ const BankCard = ({ className, ...props }: Props) => {
         />
       </div>
 
-      <div className="flex items-center flex-wrap gap-5 mt-3">
+      <div className="mt-3 flex flex-wrap items-center gap-5">
         <p className="text-xs">Receivers:</p>
 
-        <div className="flex items-center flex-wrap gap-2">
-          {avatars.map((avatar) => (
-            <Avatar key={avatar.id} className="w-8 h-8">
+        <div className="flex flex-wrap items-center gap-2">
+          {avatars.map(avatar => (
+            <Avatar key={avatar.id} className="h-8 w-8">
               <AvatarImage src={avatar.image} alt="@shadcn" />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
           ))}
 
-          <Button
-            variant="secondary"
-            size="icon"
-            className="rounded-full w-8 h-8"
-          >
-            <Plus className="w-4 h-4 text-icon" />
+          <Button variant="secondary" size="icon" className="h-8 w-8 rounded-full">
+            <Plus className="text-icon h-4 w-4" />
           </Button>
         </div>
       </div>
     </Card>
-  );
-};
+  )
+}
 
 const avatars = [
-  { id: nanoid(), image: "https://github.com/shadcn.png" },
-  { id: nanoid(), image: "https://github.com/shadcn.png" },
-  { id: nanoid(), image: "https://github.com/shadcn.png" },
-  { id: nanoid(), image: "https://github.com/shadcn.png" },
-  { id: nanoid(), image: "https://github.com/shadcn.png" },
-];
+  { id: nanoid(), image: 'https://github.com/shadcn.png' },
+  { id: nanoid(), image: 'https://github.com/shadcn.png' },
+  { id: nanoid(), image: 'https://github.com/shadcn.png' },
+  { id: nanoid(), image: 'https://github.com/shadcn.png' },
+  { id: nanoid(), image: 'https://github.com/shadcn.png' },
+]
 
-export default BankCard;
+export default BankCard

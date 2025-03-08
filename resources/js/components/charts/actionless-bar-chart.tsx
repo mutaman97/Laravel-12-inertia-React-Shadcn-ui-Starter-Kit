@@ -1,21 +1,21 @@
-"use client";
+'use client'
 
-import merge from "lodash.merge";
-import dynamic from "next/dynamic";
-import { ApexOptions } from "apexcharts";
-import { baseChartOptions } from "@/lib/base-chart-options";
+import { baseChartOptions } from '@/lib/base-chart-options'
+import { ApexOptions } from 'apexcharts'
+import merge from 'lodash.merge'
+import dynamic from 'next/dynamic'
 
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 interface Props {
-  height?: number;
-  colors: string[];
-  chartSeries: { name: string; data: number[] }[];
-  chartCategories: string[];
+  height?: number
+  colors: string[]
+  chartSeries: { name: string; data: number[] }[]
+  chartCategories: string[]
 }
 
 const ActionlessBarChart = (props: Props) => {
-  const { height = 120, colors, chartSeries, chartCategories } = props;
+  const { height = 120, colors, chartSeries, chartCategories } = props
 
   const barChartOptions = merge(baseChartOptions(), {
     chart: { offsetY: 30 },
@@ -33,28 +33,21 @@ const ActionlessBarChart = (props: Props) => {
     plotOptions: {
       bar: {
         borderRadius: 7,
-        columnWidth: "45%",
+        columnWidth: '45%',
         distributed: true,
-        borderRadiusApplication: "end",
+        borderRadiusApplication: 'end',
       },
     },
     tooltip: {
       y: {
         formatter: function (val: number, { dataPointIndex, w }) {
-          return `${w.globals.labels[dataPointIndex]} : ${val}`;
+          return `${w.globals.labels[dataPointIndex]} : ${val}`
         },
       },
     },
-  } as ApexOptions);
+  } as ApexOptions)
 
-  return (
-    <Chart
-      type="bar"
-      height={height}
-      series={chartSeries}
-      options={barChartOptions}
-    />
-  );
-};
+  return <Chart type="bar" height={height} series={chartSeries} options={barChartOptions} />
+}
 
-export default ActionlessBarChart;
+export default ActionlessBarChart

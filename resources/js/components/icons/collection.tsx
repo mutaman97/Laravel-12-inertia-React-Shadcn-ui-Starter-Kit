@@ -1,15 +1,8 @@
-import { SVGProps } from "react-html-props";
+import { SVGProps } from 'react-html-props'
 
 const Collection = (props: SVGProps) => {
   return (
-    <svg
-      width="12"
-      height="12"
-      viewBox="0 0 12 12"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
         d="M4.56943 2.31787C4.25854 2.31787 4.00652 2.56989 4.00652 2.88078C4.00652 3.19167 4.25854 3.44369 4.56943 3.44369H7.94688C8.25777 3.44369 8.50979 3.19167 8.50979 2.88078C8.50979 2.56989 8.25777 2.31787 7.94688 2.31787H4.56943Z"
         fill="currentColor"
@@ -23,7 +16,7 @@ const Collection = (props: SVGProps) => {
         fill="currentColor"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default Collection;
+export default Collection

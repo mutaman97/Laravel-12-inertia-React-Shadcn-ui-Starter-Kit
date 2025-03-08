@@ -1,15 +1,8 @@
-import { SVGProps } from "react-html-props";
+import { SVGProps } from 'react-html-props'
 
 const Yahoo = (props: SVGProps) => {
   return (
-    <svg
-      width="30"
-      height="30"
-      viewBox="0 0 30 30"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
         d="M29.9912 0H0.00878906C0.003935 0 0 0.003935 0 0.00878906V29.9912C0 29.9961 0.003935 30 0.00878906 30H29.9912C29.9961 30 30 29.9961 30 29.9912V0.00878906C30 0.003935 29.9961 0 29.9912 0Z"
         fill="currentColor"
@@ -23,7 +16,7 @@ const Yahoo = (props: SVGProps) => {
         fill="#F8FAFC"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default Yahoo;
+export default Yahoo

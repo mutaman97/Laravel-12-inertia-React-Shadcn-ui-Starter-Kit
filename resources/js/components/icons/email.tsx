@@ -1,15 +1,8 @@
-import { SVGProps } from "react-html-props";
+import { SVGProps } from 'react-html-props'
 
 const Email = (props: SVGProps) => {
   return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
         d="M13.6875 2.5C14.1112 2.5 14.5 2.87058 14.5 3.38462C14.5 3.67315 14.3713 3.93636 14.1642 4.10061L8.21588 8.80701C8.21573 8.80713 8.21558 8.80724 8.21543 8.80736C8.0853 8.9094 7.9147 8.9094 7.78458 8.80736C7.78442 8.80724 7.78427 8.80713 7.78412 8.80701L1.83597 4.10078C1.83586 4.10069 1.83575 4.1006 1.83564 4.10052C1.62878 3.93605 1.5 3.67275 1.5 3.38462C1.5 2.87051 1.88862 2.5 2.3125 2.5H13.6875Z"
         fill="currentColor"
@@ -21,7 +14,7 @@ const Email = (props: SVGProps) => {
         fill="currentColor"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default Email;
+export default Email

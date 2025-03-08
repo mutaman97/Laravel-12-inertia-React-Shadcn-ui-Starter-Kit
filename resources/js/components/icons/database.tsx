@@ -1,15 +1,8 @@
-import { SVGProps } from "react-html-props";
+import { SVGProps } from 'react-html-props'
 
 const Database = (props: SVGProps) => {
   return (
-    <svg
-      width="12"
-      height="12"
-      viewBox="0 0 12 12"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
         d="M2.31787 7.38397V9.0727C2.31787 10.0054 4.08203 10.7614 6.25823 10.7614C8.43444 10.7614 10.1986 10.0054 10.1986 9.0727V7.38397C10.1986 8.31663 8.43444 9.0727 6.25823 9.0727C4.08203 9.0727 2.31787 8.31663 2.31787 7.38397Z"
         fill="currentColor"
@@ -23,7 +16,7 @@ const Database = (props: SVGProps) => {
         fill="currentColor"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default Database;
+export default Database

@@ -1,58 +1,48 @@
-import { nanoid } from "nanoid";
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { MoreHorizontal, MoreVertical } from "lucide-react";
-import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
-import { cn } from "@/lib/utils";
-import { HTMLAttributes } from "react";
-import { Progress } from "@/components/ui/progress";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Button } from '@/components/ui/button'
+import { Card } from '@/components/ui/card'
+import { Checkbox } from '@/components/ui/checkbox'
+import { Progress } from '@/components/ui/progress'
+import { Table, TableBody, TableCell, TableRow } from '@/components/ui/table'
+import { cn } from '@/lib/utils'
+import { MoreHorizontal, MoreVertical } from 'lucide-react'
+import { nanoid } from 'nanoid'
+import { HTMLAttributes } from 'react'
 
-type Props = HTMLAttributes<HTMLDivElement>;
+type Props = HTMLAttributes<HTMLDivElement>
 
 const ToDoList = ({ className, ...props }: Props) => {
   return (
-    <Card className={cn("", className)} {...props}>
-      <div className="p-6 pb-5 flex items-center justify-between">
+    <Card className={cn('', className)} {...props}>
+      <div className="flex items-center justify-between p-6 pb-5">
         <p className="text-lg font-medium">Deal Status</p>
 
-        <Button variant="secondary" size="icon" className="w-8 h-8 rounded-md">
-          <MoreHorizontal className="w-4 h-4 text-icon" />
+        <Button variant="secondary" size="icon" className="h-8 w-8 rounded-md">
+          <MoreHorizontal className="text-icon h-4 w-4" />
         </Button>
       </div>
 
-      <div className="px-6 py-3 flex items-center">
-        <p className="font-medium text-secondary-foreground pr-3">75%</p>
+      <div className="flex items-center px-6 py-3">
+        <p className="text-secondary-foreground pr-3 font-medium">75%</p>
 
-        <Progress
-          value={65}
-          className="w-full h-2 bg-icon-muted [&>div]:bg-emerald-500"
-        />
+        <Progress value={65} className="bg-icon-muted h-2 w-full [&>div]:bg-emerald-500" />
       </div>
 
       <Table>
         <TableBody>
           {todos.map(({ id, title }) => (
-            <TableRow key={id} className="text-sm font-medium border-border">
+            <TableRow key={id} className="border-border text-sm font-medium">
               <TableCell className="px-6 py-2.5">
                 <div className="flex items-center space-x-2">
                   <Checkbox id={id} />
-                  <label
-                    htmlFor={id}
-                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                  >
+                  <label htmlFor={id} className="text-sm leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
                     {title}
                   </label>
                 </div>
               </TableCell>
 
               <TableCell className="px-6 py-2.5 text-right">
-                <Button
-                  size="icon"
-                  variant="ghost"
-                  className="w-8 h-8 rounded-md"
-                >
-                  <MoreVertical className="w-4 h-4 text-icon" />
+                <Button size="icon" variant="ghost" className="h-8 w-8 rounded-md">
+                  <MoreVertical className="text-icon h-4 w-4" />
                 </Button>
               </TableCell>
             </TableRow>
@@ -60,15 +50,15 @@ const ToDoList = ({ className, ...props }: Props) => {
         </TableBody>
       </Table>
     </Card>
-  );
-};
+  )
+}
 
 // CUSTOM DUMMY DATA SET
 const todos = [
-  { id: nanoid(), title: "Design a poster for a company", complete: true },
-  { id: nanoid(), title: "Analyze Data", complete: false },
-  { id: nanoid(), title: "YouTube campaign", complete: false },
-  { id: nanoid(), title: "Assaign employee", complete: false },
-];
+  { id: nanoid(), title: 'Design a poster for a company', complete: true },
+  { id: nanoid(), title: 'Analyze Data', complete: false },
+  { id: nanoid(), title: 'YouTube campaign', complete: false },
+  { id: nanoid(), title: 'Assaign employee', complete: false },
+]
 
-export default ToDoList;
+export default ToDoList

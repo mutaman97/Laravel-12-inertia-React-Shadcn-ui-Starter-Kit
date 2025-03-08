@@ -1,35 +1,26 @@
-import { cn } from "@/lib/utils";
-import { nanoid } from "nanoid";
-import { Card } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { Card } from '@/components/ui/card'
+import { cn } from '@/lib/utils'
+import { nanoid } from 'nanoid'
 
 const StatisticsCard1 = ({ className }: { className?: string }) => {
   return (
-    <Card
-      className={cn("p-6 h-[230px] flex flex-col justify-between", className)}
-    >
+    <Card className={cn('flex h-[230px] flex-col justify-between p-6', className)}>
       <div>
-        <div className="flex items-center gap-2 mb-1">
+        <div className="mb-1 flex items-center gap-2">
           <h6 className="font-semibold">1,352</h6>
-          <span className="text-xs font-medium text-emerald-500 px-1 py-0.5 rounded-sm bg-card">
-            +12.5%
-          </span>
+          <span className="bg-card rounded-sm px-1 py-0.5 text-xs font-medium text-emerald-500">+12.5%</span>
         </div>
 
-        <p className="text-sm text-secondary-foreground">Daily Sales</p>
+        <p className="text-secondary-foreground text-sm">Daily Sales</p>
       </div>
 
       <div>
-        <p className="text-xs font-medium text-secondary-foreground">
-          Top Customers
-        </p>
+        <p className="text-secondary-foreground text-xs font-medium">Top Customers</p>
 
-        <div className="flex items-center flex-wrap gap-2 mt-2">
-          {avatars.map((avatar) => (
-            <Avatar
-              key={avatar.id}
-              className="w-9 h-9 -mr-5 border border-border"
-            >
+        <div className="mt-2 flex flex-wrap items-center gap-2">
+          {avatars.map(avatar => (
+            <Avatar key={avatar.id} className="border-border -mr-5 h-9 w-9 border">
               <AvatarImage src={avatar.image} alt="@shadcn" />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
@@ -37,15 +28,15 @@ const StatisticsCard1 = ({ className }: { className?: string }) => {
         </div>
       </div>
     </Card>
-  );
-};
+  )
+}
 
 const avatars = [
-  { id: nanoid(), image: "https://github.com/shadcn.png" },
-  { id: nanoid(), image: "https://github.com/shadcn.png" },
-  { id: nanoid(), image: "https://github.com/shadcn.png" },
-  { id: nanoid(), image: "https://github.com/shadcn.png" },
-  { id: nanoid(), image: "https://github.com/shadcn.png" },
-];
+  { id: nanoid(), image: 'https://github.com/shadcn.png' },
+  { id: nanoid(), image: 'https://github.com/shadcn.png' },
+  { id: nanoid(), image: 'https://github.com/shadcn.png' },
+  { id: nanoid(), image: 'https://github.com/shadcn.png' },
+  { id: nanoid(), image: 'https://github.com/shadcn.png' },
+]
 
-export default StatisticsCard1;
+export default StatisticsCard1

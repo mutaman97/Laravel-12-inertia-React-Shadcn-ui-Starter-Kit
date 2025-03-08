@@ -1,46 +1,40 @@
-import { cn } from "@/lib/utils";
-import { DivProps } from "react-html-props";
-import worldMap from "@/__fakeData__/map/worldMap.json";
-import { VectorMap } from "@south-paw/react-vector-maps";
-import { Progress } from "@/components/ui/progress";
-import SingleDot from "@/components/icons/single-dot";
-import { Button } from "@/components/ui/button";
-import { MoreHorizontal } from "lucide-react";
+import worldMap from '@/__fakeData__/map/worldMap.json'
+import SingleDot from '@/components/icons/single-dot'
+import { Button } from '@/components/ui/button'
+import { Progress } from '@/components/ui/progress'
+import { cn } from '@/lib/utils'
+import { VectorMap } from '@south-paw/react-vector-maps'
+import { MoreHorizontal } from 'lucide-react'
+import { DivProps } from 'react-html-props'
 
 const SalesCountry = ({ className, ...props }: DivProps) => {
   return (
-    <div
-      className={cn("shadow border border-border rounded-2xl p-6", className)}
-      {...props}
-    >
-      <div className="flex items-start justify-between mb-6">
+    <div className={cn('border-border rounded-2xl border p-6 shadow', className)} {...props}>
+      <div className="mb-6 flex items-start justify-between">
         <div>
-          <h6 className="text-lg font-medium mb-2">Sales by Country</h6>
-          <p className="text-sm text-secondary-foreground">Average Positions</p>
+          <h6 className="mb-2 text-lg font-medium">Sales by Country</h6>
+          <p className="text-secondary-foreground text-sm">Average Positions</p>
         </div>
 
-        <Button variant="secondary" size="icon" className="w-8 h-8">
-          <MoreHorizontal className="w-4 h-4 text-icon" />
+        <Button variant="secondary" size="icon" className="h-8 w-8">
+          <MoreHorizontal className="text-icon h-4 w-4" />
         </Button>
       </div>
 
-      <div className="flex flex-col lg:flex-row items-center gap-9">
-        <div className="w-full lg:w-[270px] flex flex-col gap-6">
+      <div className="flex flex-col items-center gap-9 lg:flex-row">
+        <div className="flex w-full flex-col gap-6 lg:w-[270px]">
           {queries.map((item, ind) => (
             <div
               key={ind}
-              className="w-full lg:w-[270px] group flex items-center justify-between text-sm font-medium text-secondary-foreground hover:text-primary"
+              className="group text-secondary-foreground hover:text-primary flex w-full items-center justify-between text-sm font-medium lg:w-[270px]"
             >
-              <div className="w-[100px] flex items-center">
-                <SingleDot className="w-2 h-2 mr-2" />
+              <div className="flex w-[100px] items-center">
+                <SingleDot className="mr-2 h-2 w-2" />
                 <span>{item.name}</span>
               </div>
 
-              <div className="w-[calc(100%-100px)] flex items-center justify-between">
-                <Progress
-                  value={item.progress}
-                  className="w-[calc(100%-40px)] h-2 bg-card [&>div]:bg-icon-muted group-hover:[&>div]:bg-primary"
-                />
+              <div className="flex w-[calc(100%-100px)] items-center justify-between">
+                <Progress value={item.progress} className="bg-card [&>div]:bg-icon-muted group-hover:[&>div]:bg-primary h-2 w-[calc(100%-40px)]" />
 
                 <p className="w-10 text-right">{item.progress}%</p>
               </div>
@@ -48,22 +42,22 @@ const SalesCountry = ({ className, ...props }: DivProps) => {
           ))}
         </div>
 
-        <div className="w-full h-full vectorMap relative">
+        <div className="vectorMap relative h-full w-full">
           <VectorMap {...worldMap} />
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 const queries = [
-  { name: "Australia", progress: 72 },
-  { name: "USA", progress: 62 },
-  { name: "RSA", progress: 92 },
-  { name: "Brazil", progress: 7 },
-  { name: "Japan", progress: 40 },
-  { name: "UAE", progress: 55 },
-  { name: "Thailand", progress: 50 },
-];
+  { name: 'Australia', progress: 72 },
+  { name: 'USA', progress: 62 },
+  { name: 'RSA', progress: 92 },
+  { name: 'Brazil', progress: 7 },
+  { name: 'Japan', progress: 40 },
+  { name: 'UAE', progress: 55 },
+  { name: 'Thailand', progress: 50 },
+]
 
-export default SalesCountry;
+export default SalesCountry

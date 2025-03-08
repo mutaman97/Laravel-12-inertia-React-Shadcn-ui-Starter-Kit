@@ -1,11 +1,6 @@
-import {
-  DropdownMenu,
-  DropdownMenuItem,
-  DropdownMenuContent,
-  DropdownMenuTrigger
-} from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
-import { Download, Ellipsis } from "lucide-react";
+import { Button } from '@/components/ui/button'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
+import { Download, Ellipsis } from 'lucide-react'
 
 export function CardOptionsMenu() {
   return (
@@ -23,7 +18,7 @@ export function CardOptionsMenu() {
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
-  );
+  )
 }
 
 export function ExportButton() {
@@ -41,5 +36,5 @@ export function ExportButton() {
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
-  );
+  )
 }

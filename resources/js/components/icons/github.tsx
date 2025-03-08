@@ -1,15 +1,8 @@
-import { SVGProps } from "react-html-props";
+import { SVGProps } from 'react-html-props'
 
 const Github = (props: SVGProps) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="17"
-      viewBox="0 0 16 17"
-      fill="none"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none" {...props}>
       <g clipPath="url(#clip0_1417_4504)">
         <path
           fillRule="evenodd"
@@ -20,16 +13,11 @@ const Github = (props: SVGProps) => {
       </g>
       <defs>
         <clipPath id="clip0_1417_4504">
-          <rect
-            width="16"
-            height="16"
-            fill="white"
-            transform="translate(0 0.500244)"
-          />
+          <rect width="16" height="16" fill="white" transform="translate(0 0.500244)" />
         </clipPath>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
-export default Github;
+export default Github

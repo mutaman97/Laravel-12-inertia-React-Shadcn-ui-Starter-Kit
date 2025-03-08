@@ -1,83 +1,60 @@
-"use client";
+'use client'
 
-import { nanoid } from "nanoid";
-import { cn } from "@/lib/utils";
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { MoreHorizontal } from "lucide-react";
-import DonutChart from "@/components/charts/donut-chart";
-import { useTheme } from "next-themes";
-import { HTMLAttributes } from "react";
+import DonutChart from '@/components/charts/donut-chart'
+import { Button } from '@/components/ui/button'
+import { Card } from '@/components/ui/card'
+import { cn } from '@/lib/utils'
+import { MoreHorizontal } from 'lucide-react'
+import { nanoid } from 'nanoid'
+import { useTheme } from 'next-themes'
+import { HTMLAttributes } from 'react'
 
-type Props = HTMLAttributes<HTMLDivElement>;
+type Props = HTMLAttributes<HTMLDivElement>
 
 const WalletSummary = ({ className, ...props }: Props) => {
-  const { theme } = useTheme();
-  const colors =
-    theme === "dark" ? ["#94A3B8", "#CBD5E1"] : ["#CBD5E1", "#334155"];
+  const { theme } = useTheme()
+  const colors = theme === 'dark' ? ['#94A3B8', '#CBD5E1'] : ['#CBD5E1', '#334155']
 
   return (
-    <Card className={cn("p-6", className)} {...props}>
-      <div className="flex items-start justify-between mb-9">
+    <Card className={cn('p-6', className)} {...props}>
+      <div className="mb-9 flex items-start justify-between">
         <div>
           <p className="text-lg font-medium">Your Card</p>
-          <p className="text-sm font-medium text-secondary-foreground">
-            Last 7 days report
-          </p>
+          <p className="text-secondary-foreground text-sm font-medium">Last 7 days report</p>
         </div>
 
-        <Button variant="secondary" size="icon" className="w-8 h-8">
-          <MoreHorizontal className="w-4 h-4 text-icon" />
+        <Button variant="secondary" size="icon" className="h-8 w-8">
+          <MoreHorizontal className="text-icon h-4 w-4" />
         </Button>
       </div>
 
-      <div className="px-5 py-3 flex items-center justify-between hover:bg-card rounded-2xl mb-6">
+      <div className="hover:bg-card mb-6 flex items-center justify-between rounded-2xl px-5 py-3">
         <div>
-          <p className="font-semibold mb-2">$2,160.36</p>
-          <p className="text-sm font-medium text-secondary-foreground">
-            Income
-          </p>
+          <p className="mb-2 font-semibold">$2,160.36</p>
+          <p className="text-secondary-foreground text-sm font-medium">Income</p>
         </div>
 
-        <DonutChart
-          width="110px"
-          height={110}
-          colors={colors}
-          strokeWidth={0}
-          donutSize="75%"
-          labels={["EURO", "GBP"]}
-          chartSeries={[30, 90]}
-        />
+        <DonutChart width="110px" height={110} colors={colors} strokeWidth={0} donutSize="75%" labels={['EURO', 'GBP']} chartSeries={[30, 90]} />
       </div>
 
-      <div className="px-5 py-3 flex items-center justify-between hover:bg-card rounded-2xl">
+      <div className="hover:bg-card flex items-center justify-between rounded-2xl px-5 py-3">
         <div>
-          <p className="font-semibold mb-2">$850.65</p>
-          <p className="text-sm font-medium text-secondary-foreground">
-            Outcome
-          </p>
+          <p className="mb-2 font-semibold">$850.65</p>
+          <p className="text-secondary-foreground text-sm font-medium">Outcome</p>
         </div>
 
-        <DonutChart
-          width="110px"
-          height={110}
-          colors={colors}
-          strokeWidth={0}
-          donutSize="75%"
-          labels={["EURO", "GBP"]}
-          chartSeries={[30, 90]}
-        />
+        <DonutChart width="110px" height={110} colors={colors} strokeWidth={0} donutSize="75%" labels={['EURO', 'GBP']} chartSeries={[30, 90]} />
       </div>
     </Card>
-  );
-};
+  )
+}
 
 const avatars = [
-  { id: nanoid(), image: "https://github.com/shadcn.png" },
-  { id: nanoid(), image: "https://github.com/shadcn.png" },
-  { id: nanoid(), image: "https://github.com/shadcn.png" },
-  { id: nanoid(), image: "https://github.com/shadcn.png" },
-  { id: nanoid(), image: "https://github.com/shadcn.png" },
-];
+  { id: nanoid(), image: 'https://github.com/shadcn.png' },
+  { id: nanoid(), image: 'https://github.com/shadcn.png' },
+  { id: nanoid(), image: 'https://github.com/shadcn.png' },
+  { id: nanoid(), image: 'https://github.com/shadcn.png' },
+  { id: nanoid(), image: 'https://github.com/shadcn.png' },
+]
 
-export default WalletSummary;
+export default WalletSummary

@@ -1,19 +1,19 @@
-"use client";
+'use client'
 
-import dynamic from "next/dynamic";
-import { ApexOptions } from "apexcharts";
+import { ApexOptions } from 'apexcharts'
+import dynamic from 'next/dynamic'
 
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 interface Props {
-  height?: number;
-  colors: string[];
-  labels: string[];
-  chartSeries: number[];
+  height?: number
+  colors: string[]
+  labels: string[]
+  chartSeries: number[]
 }
 
 const ActionlessDonutChart = (props: Props) => {
-  const { colors, labels, height = 172, chartSeries } = props;
+  const { colors, labels, height = 172, chartSeries } = props
 
   const chartOptions = {
     stroke: { show: false },
@@ -21,25 +21,20 @@ const ActionlessDonutChart = (props: Props) => {
     dataLabels: { enabled: false },
     colors: colors,
     labels: labels,
-    plotOptions: { pie: { donut: { size: "75%" }, expandOnClick: false } },
+    plotOptions: { pie: { donut: { size: '75%' }, expandOnClick: false } },
     tooltip: {
       y: {
-        formatter: (val) => String(val),
-        title: { formatter: (series) => series },
+        formatter: val => String(val),
+        title: { formatter: series => series },
       },
     },
-  } as ApexOptions;
+  } as ApexOptions
 
   return (
     <div>
-      <Chart
-        type="donut"
-        height={height}
-        options={chartOptions}
-        series={chartSeries}
-      />
+      <Chart type="donut" height={height} options={chartOptions} series={chartSeries} />
     </div>
-  );
-};
+  )
+}
 
-export default ActionlessDonutChart;
+export default ActionlessDonutChart

@@ -1,61 +1,52 @@
-import { cn } from "@/lib/utils";
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { ArrowDown, ArrowUp } from "lucide-react";
-import ThemeBasedImage from "@/components/theme-based-image";
-import { HTMLAttributes } from "react";
+import ThemeBasedImage from '@/components/theme-based-image'
+import { Button } from '@/components/ui/button'
+import { Card } from '@/components/ui/card'
+import { cn } from '@/lib/utils'
+import { ArrowDown, ArrowUp } from 'lucide-react'
+import { HTMLAttributes } from 'react'
 
-type Props = HTMLAttributes<HTMLDivElement>;
+type Props = HTMLAttributes<HTMLDivElement>
 
 const BalanceCard = ({ className, ...props }: Props) => {
   return (
-    <Card
-      className={cn(
-        "p-6 flex flex-col lg:flex-row lg:items-center justify-between",
-        className
-      )}
-      {...props}
-    >
+    <Card className={cn('flex flex-col justify-between p-6 lg:flex-row lg:items-center', className)} {...props}>
       <div>
         <div>
-          <h6 className="font-semibold mb-1">$21,350.25</h6>
-          <p className="text-sm text-secondary-foreground">My Balance</p>
+          <h6 className="mb-1 font-semibold">$21,350.25</h6>
+          <p className="text-secondary-foreground text-sm">My Balance</p>
         </div>
 
-        <div className="flex items-center justify-center lg:justify-start gap-7 py-9">
+        <div className="flex items-center justify-center gap-7 py-9 lg:justify-start">
           <div className="flex items-center">
             <Button variant="secondary" size="icon">
-              <ArrowUp className="w-4 h-4 text-emerald-500" />
+              <ArrowUp className="h-4 w-4 text-emerald-500" />
             </Button>
             <div className="ml-3">
               <p className="font-semibold">14,210.15</p>
-              <p className="text-sm text-secondary-foreground">Income</p>
+              <p className="text-secondary-foreground text-sm">Income</p>
             </div>
           </div>
 
           <div className="flex items-center">
             <Button variant="secondary" size="icon">
-              <ArrowDown className="w-4 h-4 text-red-500" />
+              <ArrowDown className="h-4 w-4 text-red-500" />
             </Button>
             <div className="ml-3">
               <p className="font-semibold">7,352.17</p>
-              <p className="text-sm text-secondary-foreground">Expance</p>
+              <p className="text-secondary-foreground text-sm">Expance</p>
             </div>
           </div>
         </div>
 
-        <div className="flex items-center justify-center lg:justify-start gap-4">
+        <div className="flex items-center justify-center gap-4 lg:justify-start">
           <Button className="w-[100px]">Send</Button>
-          <Button
-            variant="secondary"
-            className="w-[100px] text-muted-foreground"
-          >
+          <Button variant="secondary" className="text-muted-foreground w-[100px]">
             Receive
           </Button>
         </div>
       </div>
 
-      <div className="flex justify-center lg:justify-end pt-8 lg:pt-0">
+      <div className="flex justify-center pt-8 lg:justify-end lg:pt-0">
         <ThemeBasedImage
           width={190}
           height={210}
@@ -65,7 +56,7 @@ const BalanceCard = ({ className, ...props }: Props) => {
         />
       </div>
     </Card>
-  );
-};
+  )
+}
 
-export default BalanceCard;
+export default BalanceCard

@@ -1,33 +1,33 @@
-"use client";
+'use client'
 
-import { cn } from "@/lib/utils";
-import { HTMLAttributes } from "react";
-import { Card } from "@/components/ui/card";
-import dynamic from "next/dynamic";
-import { ApexOptions } from "apexcharts";
-import SingleDot from "@/components/icons/single-dot";
+import SingleDot from '@/components/icons/single-dot'
+import { Card } from '@/components/ui/card'
+import { cn } from '@/lib/utils'
+import { ApexOptions } from 'apexcharts'
+import dynamic from 'next/dynamic'
+import { HTMLAttributes } from 'react'
 
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
-type Props = HTMLAttributes<HTMLDivElement>;
+type Props = HTMLAttributes<HTMLDivElement>
 
 const Goals = ({ className, ...props }: Props) => {
   const chartOptions = {
     chart: {
-      type: "radialBar",
+      type: 'radialBar',
       offsetY: -20,
       sparkline: {
         enabled: true,
       },
     },
-    colors: ["hsl(var(--card-hover))"],
+    colors: ['hsl(var(--card-hover))'],
     plotOptions: {
       radialBar: {
         startAngle: -90,
         endAngle: 90,
         track: {
-          background: "hsl(var(--card))",
-          strokeWidth: "97%",
+          background: 'hsl(var(--card))',
+          strokeWidth: '97%',
           margin: 5,
         },
         dataLabels: {
@@ -36,7 +36,7 @@ const Goals = ({ className, ...props }: Props) => {
           },
           value: {
             offsetY: -2,
-            fontSize: "22px",
+            fontSize: '22px',
           },
         },
       },
@@ -46,38 +46,30 @@ const Goals = ({ className, ...props }: Props) => {
         top: -10,
       },
     },
-    labels: ["Average Results"],
-  } as ApexOptions;
+    labels: ['Average Results'],
+  } as ApexOptions
 
   return (
-    <Card className={cn("h-[356px] relative", className)} {...props}>
+    <Card className={cn('relative h-[356px]', className)} {...props}>
       <div className="p-6 pb-8 text-center">
         <h6 className="text-sm font-semibold">Goals</h6>
-        <p className="text-sm text-secondary-foreground">
-          Set your daily activity goal.
-        </p>
+        <p className="text-secondary-foreground text-sm">Set your daily activity goal.</p>
       </div>
 
-      <Chart
-        width="100%"
-        height={400}
-        options={chartOptions}
-        series={[76]}
-        type="radialBar"
-      />
+      <Chart width="100%" height={400} options={chartOptions} series={[76]} type="radialBar" />
 
-      <div className="absolute bottom-6 left-6 w-[calc(100%-48px)] flex items-center justify-between">
-        <p className="text-sm text-secondary-foreground flex items-center">
-          <SingleDot className="w-2 h-2 mr-2 text-card-hover" />
+      <div className="absolute bottom-6 left-6 flex w-[calc(100%-48px)] items-center justify-between">
+        <p className="text-secondary-foreground flex items-center text-sm">
+          <SingleDot className="text-card-hover mr-2 h-2 w-2" />
           <span>Done</span>
         </p>
-        <p className="text-sm text-secondary-foreground flex items-center">
-          <SingleDot className="w-2 h-2 mr-2 text-card-hover" />
+        <p className="text-secondary-foreground flex items-center text-sm">
+          <SingleDot className="text-card-hover mr-2 h-2 w-2" />
           <span>Remaining</span>
         </p>
       </div>
     </Card>
-  );
-};
+  )
+}
 
-export default Goals;
+export default Goals

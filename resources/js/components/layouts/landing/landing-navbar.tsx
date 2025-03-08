@@ -1,23 +1,18 @@
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Menu } from "lucide-react";
-import { Card } from "@/components/ui/card";
-import ThemeToggle from "@/components/theme-toggle";
-import { Button } from "@/components/ui/button";
-import ShadcnKit from "@/components/icons/shadcn-kit";
-import { nanoid } from "nanoid";
-import Link from "next/link";
+import ShadcnKit from '@/components/icons/shadcn-kit'
+import ThemeToggle from '@/components/theme-toggle'
+import { Button } from '@/components/ui/button'
+import { Card } from '@/components/ui/card'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
+import { Menu } from 'lucide-react'
+import { nanoid } from 'nanoid'
+import Link from 'next/link'
 
 const LandingNavbar = () => {
   return (
-    <Card className="container bg-card py-3 px-4 border-0 flex items-center justify-between gap-6 rounded-2xl mt-5">
+    <Card className="bg-card container mt-5 flex items-center justify-between gap-6 rounded-2xl border-0 px-4 py-3">
       <ShadcnKit className="text-primary cursor-pointer" />
 
-      <ul className="hidden md:flex items-center gap-10 text-card-foreground">
+      <ul className="text-card-foreground hidden items-center gap-10 md:flex">
         <li className="text-primary font-medium">
           <a href="#home">Home</a>
         </li>
@@ -37,7 +32,7 @@ const LandingNavbar = () => {
             </DropdownMenuTrigger>
 
             <DropdownMenuContent align="start">
-              {landings.map((page) => (
+              {landings.map(page => (
                 <DropdownMenuItem key={page.id}>
                   <Link href={page.route}>{page.title}</Link>
                 </DropdownMenuItem>
@@ -48,19 +43,19 @@ const LandingNavbar = () => {
       </ul>
 
       <div className="flex items-center">
-        <Button variant="secondary" className="hidden md:block px-2">
+        <Button variant="secondary" className="hidden px-2 md:block">
           Login
         </Button>
-        <Button className="hidden md:block ml-2 mr-2">Get Started</Button>
+        <Button className="mr-2 ml-2 hidden md:block">Get Started</Button>
 
-        <div className="flex md:hidden mr-2 items-center gap-2">
+        <div className="mr-2 flex items-center gap-2 md:hidden">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <span className="py-2 px-2 bg-gray-100 rounded-md">Pages</span>
+              <span className="rounded-md bg-gray-100 px-2 py-2">Pages</span>
             </DropdownMenuTrigger>
 
             <DropdownMenuContent align="start">
-              {landings.map((page) => (
+              {landings.map(page => (
                 <DropdownMenuItem key={page.id}>
                   <Link href={page.route}>{page.title}</Link>
                 </DropdownMenuItem>
@@ -71,7 +66,7 @@ const LandingNavbar = () => {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="icon">
-                <Menu className="h-5 w-5 rotate-0 scale-100" />
+                <Menu className="h-5 w-5 scale-100 rotate-0" />
               </Button>
             </DropdownMenuTrigger>
 
@@ -103,55 +98,55 @@ const LandingNavbar = () => {
         <ThemeToggle />
       </div>
     </Card>
-  );
-};
+  )
+}
 
 const landings = [
   {
     id: nanoid(),
-    title: "Landing 01",
-    route: "/project-management",
+    title: 'Landing 01',
+    route: '/project-management',
   },
   {
     id: nanoid(),
-    title: "Landing 02",
-    route: "/crm-landing",
+    title: 'Landing 02',
+    route: '/crm-landing',
   },
   {
     id: nanoid(),
-    title: "Landing 03",
-    route: "/ai-content-landing",
+    title: 'Landing 03',
+    route: '/ai-content-landing',
   },
   {
     id: nanoid(),
-    title: "Landing 04",
-    route: "/new-intro-landing",
+    title: 'Landing 04',
+    route: '/new-intro-landing',
   },
   {
     id: nanoid(),
-    title: "Landing 05",
-    route: "/about-us-landing",
+    title: 'Landing 05',
+    route: '/about-us-landing',
   },
   {
     id: nanoid(),
-    title: "Landing 06",
-    route: "/contact-us-landing",
+    title: 'Landing 06',
+    route: '/contact-us-landing',
   },
   {
     id: nanoid(),
-    title: "Landing 07",
-    route: "/faqs-landing",
+    title: 'Landing 07',
+    route: '/faqs-landing',
   },
   {
     id: nanoid(),
-    title: "Landing 08",
-    route: "/pricing-landing",
+    title: 'Landing 08',
+    route: '/pricing-landing',
   },
   {
     id: nanoid(),
-    title: "Landing 09",
-    route: "/career-landing",
+    title: 'Landing 09',
+    route: '/career-landing',
   },
-];
+]
 
-export default LandingNavbar;
+export default LandingNavbar

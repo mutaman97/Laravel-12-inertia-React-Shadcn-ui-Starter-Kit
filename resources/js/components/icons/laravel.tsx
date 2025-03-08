@@ -1,15 +1,8 @@
-import { SVGProps } from "react-html-props";
+import { SVGProps } from 'react-html-props'
 
 const Laravel = (props: SVGProps) => {
   return (
-    <svg
-      width="134"
-      height="40"
-      viewBox="0 0 134 40"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg width="134" height="40" viewBox="0 0 134 40" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <g clipPath="url(#clip0_446_28901)">
         <path
           fillRule="evenodd"
@@ -28,24 +21,14 @@ const Laravel = (props: SVGProps) => {
       </g>
       <defs>
         <clipPath id="clip0_446_28901">
-          <rect
-            width="87.6923"
-            height="22.3077"
-            fill="white"
-            transform="translate(46.3077 9.23096)"
-          />
+          <rect width="87.6923" height="22.3077" fill="white" transform="translate(46.3077 9.23096)" />
         </clipPath>
         <clipPath id="clip1_446_28901">
-          <rect
-            width="38.4615"
-            height="40"
-            fill="white"
-            transform="translate(0.153809)"
-          />
+          <rect width="38.4615" height="40" fill="white" transform="translate(0.153809)" />
         </clipPath>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
-export default Laravel;
+export default Laravel

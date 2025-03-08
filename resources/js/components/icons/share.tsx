@@ -1,15 +1,8 @@
-import { SVGProps } from "react-html-props";
+import { SVGProps } from 'react-html-props'
 
 const Share = (props: SVGProps) => {
   return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
         d="M14.5 4C14.5 5.38011 13.3801 6.5 12 6.5C10.5948 6.5 9.5 5.38317 9.5 4C9.5 2.61627 10.5948 1.5 12 1.5C13.3802 1.5 14.5 2.61934 14.5 4ZM6.5 8C6.5 9.38011 5.38011 10.5 4 10.5C2.61934 10.5 1.5 9.38018 1.5 8C1.5 6.59476 2.61627 5.5 4 5.5C5.38317 5.5 6.5 6.59482 6.5 8ZM9.5 12C9.5 10.5918 10.5918 9.5 12 9.5C13.3832 9.5 14.5 10.5948 14.5 12C14.5 13.3801 13.3801 14.5 12 14.5C10.5948 14.5 9.5 13.3832 9.5 12Z"
         fill="currentColor"
@@ -21,7 +14,7 @@ const Share = (props: SVGProps) => {
         fill="currentColor"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default Share;
+export default Share

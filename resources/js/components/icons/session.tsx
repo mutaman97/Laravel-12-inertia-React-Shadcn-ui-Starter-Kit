@@ -1,15 +1,8 @@
-import { SVGProps } from "react-html-props";
+import { SVGProps } from 'react-html-props'
 
 const Session = (props: SVGProps) => {
   return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
         d="M14.7434 8.74326L11.2433 12.2434C10.9015 12.5852 10.3477 12.5852 10.0059 12.2434C9.66413 11.9016 9.66413 11.3478 10.0059 11.006L12.0144 9.0003H6.25015C5.76615 9.0003 5.37512 8.60928 5.37512 8.12528C5.37512 7.64128 5.76642 7.25025 6.25015 7.25025H12.0144L10.0078 5.2437C9.66604 4.90189 9.66604 4.34816 10.0078 4.00636C10.3494 3.66482 10.9031 3.66427 11.2452 4.00636L14.7453 7.50647C15.0852 7.84909 15.0852 8.40146 14.7434 8.74326Z"
         fill="currentColor"
@@ -20,7 +13,7 @@ const Session = (props: SVGProps) => {
         fill="currentColor"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default Session;
+export default Session

@@ -1,15 +1,8 @@
-import { SVGProps } from "react-html-props";
+import { SVGProps } from 'react-html-props'
 
 const Calender = (props: SVGProps) => {
   return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
         d="M5.5 2.75V3.25H6H10H10.5V2.75V1.875C10.5 1.72832 10.6585 1.5 11 1.5C11.3415 1.5 11.5 1.72832 11.5 1.875V2.75V3.25H12H13.5C14.1169 3.25 14.5 3.67445 14.5 4.0625V5.75H1.5V4.0625C1.5 3.67439 1.8829 3.25 2.5 3.25H4H4.5V2.75V1.875C4.5 1.72832 4.65854 1.5 5 1.5C5.34146 1.5 5.5 1.72832 5.5 1.875V2.75Z"
         fill="currentColor"
@@ -21,7 +14,7 @@ const Calender = (props: SVGProps) => {
         fill="currentColor"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default Calender;
+export default Calender

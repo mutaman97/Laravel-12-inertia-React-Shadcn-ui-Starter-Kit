@@ -1,33 +1,27 @@
-"use client";
+'use client'
 
-import Link from "next/link";
-import { cn } from "@/lib/utils";
-import { usePathname } from "next/navigation";
-import { Button } from "@/components/ui/button";
-import { RouteTypes } from "@/components/layouts/component/routes";
+import { RouteTypes } from '@/components/layouts/component/routes'
+import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 const SidebarItem = (props: RouteTypes) => {
-  const url = usePathname();
-  const { id, path, title, pages } = props;
+  const url = usePathname()
+  const { id, path, title, pages } = props
 
   return (
     <>
       {pages.length > 0 ? (
         <ul key={id} className="mb-8 flex flex-col gap-2">
-          <li className={cn("mx-4 mb-2")}>
-            <p className="font-medium text-sm">{title}</p>
+          <li className={cn('mx-4 mb-2')}>
+            <p className="text-sm font-medium">{title}</p>
           </li>
 
-          {pages.map((page) => (
+          {pages.map(page => (
             <li key={page.id} className="pl-4">
               <Link href={`${path}${page.path}`}>
-                <Button
-                  variant="link"
-                  className={cn(
-                    "text-xs px-4 h-8",
-                    `${path}${page.path}` === url && "underline font-semibold"
-                  )}
-                >
+                <Button variant="link" className={cn('h-8 px-4 text-xs', `${path}${page.path}` === url && 'font-semibold underline')}>
                   {page.name}
                 </Button>
               </Link>
@@ -35,19 +29,12 @@ const SidebarItem = (props: RouteTypes) => {
           ))}
         </ul>
       ) : (
-        <Button
-          key={id}
-          variant="link"
-          className={cn(
-            "px-4 text-sm mb-4",
-            path === url && "underline font-semibold"
-          )}
-        >
+        <Button key={id} variant="link" className={cn('mb-4 px-4 text-sm', path === url && 'font-semibold underline')}>
           <Link href={path}>{title}</Link>
         </Button>
       )}
     </>
-  );
-};
+  )
+}
 
-export default SidebarItem;
+export default SidebarItem

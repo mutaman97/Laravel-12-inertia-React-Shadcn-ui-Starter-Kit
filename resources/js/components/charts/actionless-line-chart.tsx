@@ -1,19 +1,19 @@
-"use client";
+'use client'
 
-import dynamic from "next/dynamic";
-import { ApexOptions } from "apexcharts";
+import { ApexOptions } from 'apexcharts'
+import dynamic from 'next/dynamic'
 
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 interface Props {
-  height?: number;
-  colors: string[];
-  strokeWidth?: number;
-  chartSeries: { name: string; data: number[] }[];
+  height?: number
+  colors: string[]
+  strokeWidth?: number
+  chartSeries: { name: string; data: number[] }[]
 }
 
 const ActionLineChart = (props: Props) => {
-  const { colors, height = 330, strokeWidth = 2, chartSeries } = props;
+  const { colors, height = 330, strokeWidth = 2, chartSeries } = props
 
   // REACT CHART OPTIONS
   const chartOptions = {
@@ -38,7 +38,7 @@ const ActionLineChart = (props: Props) => {
     },
     stroke: {
       width: strokeWidth,
-      curve: "smooth",
+      curve: 'smooth',
     },
 
     xaxis: {
@@ -53,19 +53,13 @@ const ActionLineChart = (props: Props) => {
     yaxis: {
       show: false,
     },
-  } as ApexOptions;
+  } as ApexOptions
 
   return (
     <div className="actionLessLineChart">
-      <Chart
-        type="line"
-        width="100%"
-        height={height}
-        series={chartSeries}
-        options={chartOptions}
-      />
+      <Chart type="line" width="100%" height={height} series={chartSeries} options={chartOptions} />
     </div>
-  );
-};
+  )
+}
 
-export default ActionLineChart;
+export default ActionLineChart

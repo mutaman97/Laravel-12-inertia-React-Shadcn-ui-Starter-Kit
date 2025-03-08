@@ -1,15 +1,8 @@
-import { SVGProps } from "react-html-props";
+import { SVGProps } from 'react-html-props'
 
 const Opera = (props: SVGProps) => {
   return (
-    <svg
-      width="30"
-      height="30"
-      viewBox="0 0 30 30"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
         d="M10.0664 23.4492C8.40234 21.4922 7.33594 18.5977 7.26562 15.3516V14.6484C7.33594 11.4023 8.41406 8.50781 10.0664 6.55078C12.2227 3.76172 15.3867 2.50781 18.9609 2.50781C21.1641 2.50781 23.2383 2.66016 24.9961 3.83203C22.3594 1.45313 18.8789 0.0117188 15.0586 0H15C6.71484 0 0 6.71484 0 15C0 23.0391 6.32812 29.6133 14.2852 29.9883C14.5195 30 14.7656 30 15 30C18.8438 30 22.3477 28.5586 24.9961 26.1797C23.2383 27.3516 21.2812 27.3984 19.0781 27.3984C15.5156 27.4102 12.2109 26.25 10.0664 23.4492Z"
         fill="currentColor"
@@ -19,7 +12,7 @@ const Opera = (props: SVGProps) => {
         fill="currentColor"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default Opera;
+export default Opera

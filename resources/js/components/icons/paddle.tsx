@@ -1,15 +1,8 @@
-import { SVGProps } from "react-html-props";
+import { SVGProps } from 'react-html-props'
 
 const Paddle = (props: SVGProps) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="132"
-      height="40"
-      viewBox="0 0 132 40"
-      fill="none"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="132" height="40" viewBox="0 0 132 40" fill="none" {...props}>
       <g clipPath="url(#clip0_446_28886)">
         <path
           fillRule="evenodd"
@@ -20,16 +13,11 @@ const Paddle = (props: SVGProps) => {
       </g>
       <defs>
         <clipPath id="clip0_446_28886">
-          <rect
-            width="131.25"
-            height="40"
-            fill="white"
-            transform="translate(0.686768)"
-          />
+          <rect width="131.25" height="40" fill="white" transform="translate(0.686768)" />
         </clipPath>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
-export default Paddle;
+export default Paddle

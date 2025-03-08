@@ -1,15 +1,8 @@
-import { SVGProps } from "react-html-props";
+import { SVGProps } from 'react-html-props'
 
 const Dashboard = (props: SVGProps) => {
   return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
         d="M6.5 5.5C6.5 6.05198 6.05198 6.5 5.5 6.5H2.5C1.94777 6.5 1.5 6.05205 1.5 5.5V2.5C1.5 1.9477 1.9477 1.5 2.5 1.5H5.5C6.05205 1.5 6.5 1.94777 6.5 2.5V5.5ZM14.5 13.5C14.5 14.052 14.052 14.5 13.5 14.5H10.5C9.94802 14.5 9.5 14.052 9.5 13.5V10.5C9.5 9.94802 9.94802 9.5 10.5 9.5H13.5C14.052 9.5 14.5 9.94802 14.5 10.5V13.5Z"
         fill="currentColor"
@@ -21,7 +14,7 @@ const Dashboard = (props: SVGProps) => {
         fill="currentColor"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default Dashboard;
+export default Dashboard

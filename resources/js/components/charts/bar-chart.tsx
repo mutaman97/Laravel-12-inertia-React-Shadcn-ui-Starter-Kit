@@ -1,30 +1,23 @@
-"use client";
+'use client'
 
-import merge from "lodash.merge";
-import dynamic from "next/dynamic";
-import { ApexOptions } from "apexcharts";
-import { baseChartOptions } from "@/lib/base-chart-options";
+import { baseChartOptions } from '@/lib/base-chart-options'
+import { ApexOptions } from 'apexcharts'
+import merge from 'lodash.merge'
+import dynamic from 'next/dynamic'
 
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 interface Props {
-  height?: number;
-  colors: string[];
-  columnRadius?: number;
-  columnWidth?: string;
-  chartSeries: { name: string; data: number[] }[];
-  chartCategories: string[];
+  height?: number
+  colors: string[]
+  columnRadius?: number
+  columnWidth?: string
+  chartSeries: { name: string; data: number[] }[]
+  chartCategories: string[]
 }
 
 const BarChart = (props: Props) => {
-  const {
-    height = 275,
-    colors,
-    columnRadius = 4,
-    columnWidth = "43%",
-    chartSeries,
-    chartCategories,
-  } = props;
+  const { height = 275, colors, columnRadius = 4, columnWidth = '43%', chartSeries, chartCategories } = props
 
   // REACT CHART OPTIONS
   const chartOptions = merge(baseChartOptions(), {
@@ -32,7 +25,7 @@ const BarChart = (props: Props) => {
     grid: {
       show: true,
       strokeDashArray: 3,
-      borderColor: "hsl(var(--border))",
+      borderColor: 'hsl(var(--border))',
     },
 
     xaxis: {
@@ -40,7 +33,7 @@ const BarChart = (props: Props) => {
       categories: chartCategories,
       labels: {
         show: true,
-        style: { colors: "hsl(var(--secondary-foreground))" },
+        style: { colors: 'hsl(var(--secondary-foreground))' },
       },
     },
 
@@ -50,8 +43,8 @@ const BarChart = (props: Props) => {
       max: 50000,
       tickAmount: 5,
       labels: {
-        formatter: (value) => value / 1000 + "K",
-        style: { colors: "hsl(var(--secondary-foreground))" },
+        formatter: value => value / 1000 + 'K',
+        style: { colors: 'hsl(var(--secondary-foreground))' },
       },
     },
 
@@ -64,13 +57,13 @@ const BarChart = (props: Props) => {
     stroke: {
       show: true,
       width: 3,
-      colors: ["transparent"],
+      colors: ['transparent'],
     },
 
     legend: {
       show: true,
-      position: "top",
-      fontSize: "14px",
+      position: 'top',
+      fontSize: '14px',
       itemMargin: { horizontal: 12 },
       // fontFamily: theme.typography.fontFamily,
       onItemClick: { toggleDataSeries: false },
@@ -82,7 +75,7 @@ const BarChart = (props: Props) => {
       bar: {
         borderRadius: columnRadius,
         columnWidth: columnWidth,
-        borderRadiusApplication: "end",
+        borderRadiusApplication: 'end',
       },
     },
 
@@ -98,8 +91,8 @@ const BarChart = (props: Props) => {
             max: 50000,
             tickAmount: 5,
             labels: {
-              formatter: (value: number) => value / 1000 + "K",
-              style: { colors: "hsl(var(--secondary-foreground))" },
+              formatter: (value: number) => value / 1000 + 'K',
+              style: { colors: 'hsl(var(--secondary-foreground))' },
             },
           },
           yaxis: {
@@ -107,7 +100,7 @@ const BarChart = (props: Props) => {
             labels: {
               style: {
                 fontWeight: 500,
-                colors: "hsl(var(--secondary-foreground))",
+                colors: 'hsl(var(--secondary-foreground))',
                 // fontFamily: theme.typography.fontFamily,
               },
             },
@@ -115,17 +108,9 @@ const BarChart = (props: Props) => {
         },
       },
     ],
-  } as ApexOptions);
+  } as ApexOptions)
 
-  return (
-    <Chart
-      type="bar"
-      width="100%"
-      height={height}
-      options={chartOptions}
-      series={chartSeries}
-    />
-  );
-};
+  return <Chart type="bar" width="100%" height={height} options={chartOptions} series={chartSeries} />
+}
 
-export default BarChart;
+export default BarChart

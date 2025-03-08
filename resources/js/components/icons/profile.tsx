@@ -1,15 +1,8 @@
-import { SVGProps } from "react-html-props";
+import { SVGProps } from 'react-html-props'
 
 const Profile = (props: SVGProps) => {
   return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
         d="M12.2929 4H10.5V2.20711L12.2929 4ZM9.5 8C9.5 8.69024 8.94041 9.25 8.25 9.25C7.56091 9.25 7 8.68909 7 8C7 7.31091 7.56091 6.75 8.25 6.75C8.94041 6.75 9.5 7.30976 9.5 8ZM10.8114 12.75H5.68864C5.72151 11.8468 6.46397 11.125 7.375 11.125H9.125C10.0365 11.125 10.7785 11.8465 10.8114 12.75Z"
         fill="currentColor"
@@ -21,7 +14,7 @@ const Profile = (props: SVGProps) => {
         fill="currentColor"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default Profile;
+export default Profile

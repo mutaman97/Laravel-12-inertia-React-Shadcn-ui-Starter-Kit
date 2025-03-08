@@ -1,15 +1,8 @@
-import { SVGProps } from "react-html-props";
+import { SVGProps } from 'react-html-props'
 
 const Twitter = (props: SVGProps) => {
   return (
-    <svg
-      width="28"
-      height="28"
-      viewBox="0 0 28 28"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
         d="M28 14C28 21.7327 21.7327 28 14 28C6.26726 28 0 21.7327 0 14C0 6.26726 6.26726 0 14 0C21.7327 0 28 6.26726 28 14Z"
         fill="currentColor"
@@ -19,7 +12,7 @@ const Twitter = (props: SVGProps) => {
         fill="white"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default Twitter;
+export default Twitter

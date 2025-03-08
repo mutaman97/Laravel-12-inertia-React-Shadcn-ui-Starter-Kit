@@ -1,15 +1,8 @@
-import { SVGProps } from "react-html-props";
+import { SVGProps } from 'react-html-props'
 
 const Chat = (props: SVGProps) => {
   return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
         d="M5.1807 5.46533H10.868C10.9522 5.46533 11.0242 5.53277 11.0242 5.62623C11.0242 5.71968 10.9522 5.78713 10.868 5.78713H5.1807C5.09926 5.78713 5.02448 5.71693 5.02448 5.62623C5.02448 5.53553 5.09926 5.46533 5.1807 5.46533ZM5.1807 8.10892H8.24308C8.32726 8.10892 8.3993 8.17636 8.3993 8.26982C8.3993 8.36327 8.32726 8.43071 8.24308 8.43071H5.1807C5.09926 8.43071 5.02448 8.36052 5.02448 8.26982C5.02448 8.17912 5.09926 8.10892 5.1807 8.10892Z"
         fill="currentColor"
@@ -21,7 +14,7 @@ const Chat = (props: SVGProps) => {
         fill="currentColor"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default Chat;
+export default Chat

@@ -1,23 +1,23 @@
-"use client";
+'use client'
 
-import merge from "lodash.merge";
-import dynamic from "next/dynamic";
-import { ApexOptions } from "apexcharts";
-import { baseChartOptions } from "@/lib/base-chart-options";
+import { baseChartOptions } from '@/lib/base-chart-options'
+import { ApexOptions } from 'apexcharts'
+import merge from 'lodash.merge'
+import dynamic from 'next/dynamic'
 
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 interface Props {
-  grid?: boolean;
-  height?: number;
-  colors: string[];
-  gridColor?: string;
-  strokeWidth?: number;
-  chartSeries: { name: string; data: number[] }[];
-  chartCategories: string[];
-  isLegend?: boolean;
-  legendPosition?: "top" | "right" | "bottom" | "left";
-  legendHorizontalPosition?: "left" | "right" | "center";
+  grid?: boolean
+  height?: number
+  colors: string[]
+  gridColor?: string
+  strokeWidth?: number
+  chartSeries: { name: string; data: number[] }[]
+  chartCategories: string[]
+  isLegend?: boolean
+  legendPosition?: 'top' | 'right' | 'bottom' | 'left'
+  legendHorizontalPosition?: 'left' | 'right' | 'center'
 }
 
 const LineChart = (props: Props) => {
@@ -26,13 +26,13 @@ const LineChart = (props: Props) => {
     height = 330,
     colors,
     isLegend = true,
-    legendPosition = "top",
-    legendHorizontalPosition = "center",
-    gridColor = "hsl(var(--border-hover))",
+    legendPosition = 'top',
+    legendHorizontalPosition = 'center',
+    gridColor = 'hsl(var(--border-hover))',
     strokeWidth = 2,
     chartSeries,
     chartCategories,
-  } = props;
+  } = props
 
   const chartOptions = merge(baseChartOptions(), {
     colors: colors,
@@ -53,7 +53,7 @@ const LineChart = (props: Props) => {
       categories: chartCategories,
       labels: {
         show: true,
-        style: { colors: "hsl(var(--secondary-foreground))" },
+        style: { colors: 'hsl(var(--secondary-foreground))' },
       },
     },
 
@@ -63,7 +63,7 @@ const LineChart = (props: Props) => {
       tickAmount: 5,
       labels: {
         // formatter: (value) => value / 1000 + "K",
-        style: { colors: "hsl(var(--secondary-foreground))" },
+        style: { colors: 'hsl(var(--secondary-foreground))' },
       },
     },
 
@@ -81,7 +81,7 @@ const LineChart = (props: Props) => {
     legend: {
       show: isLegend,
       position: legendPosition,
-      fontSize: "14px",
+      fontSize: '14px',
       horizontalAlign: legendHorizontalPosition,
       itemMargin: { horizontal: 12 },
       // fontFamily: theme.typography.fontFamily,
@@ -96,8 +96,8 @@ const LineChart = (props: Props) => {
     plotOptions: {
       bar: {
         borderRadius: 4,
-        columnWidth: "43%",
-        borderRadiusApplication: "end",
+        columnWidth: '43%',
+        borderRadiusApplication: 'end',
       },
     },
 
@@ -113,8 +113,8 @@ const LineChart = (props: Props) => {
             max: 50000,
             tickAmount: 5,
             labels: {
-              formatter: (value: number) => value / 1000 + "K",
-              style: { colors: "hsl(var(--secondary-foreground))" },
+              formatter: (value: number) => value / 1000 + 'K',
+              style: { colors: 'hsl(var(--secondary-foreground))' },
             },
           },
           yaxis: {
@@ -122,7 +122,7 @@ const LineChart = (props: Props) => {
             labels: {
               style: {
                 fontWeight: 500,
-                colors: "hsl(var(--secondary-foreground))",
+                colors: 'hsl(var(--secondary-foreground))',
                 // fontFamily: theme.typography.fontFamily,
               },
             },
@@ -130,17 +130,9 @@ const LineChart = (props: Props) => {
         },
       },
     ],
-  } as ApexOptions);
+  } as ApexOptions)
 
-  return (
-    <Chart
-      type="line"
-      width="100%"
-      height={height}
-      series={chartSeries}
-      options={chartOptions}
-    />
-  );
-};
+  return <Chart type="line" width="100%" height={height} series={chartSeries} options={chartOptions} />
+}
 
-export default LineChart;
+export default LineChart
