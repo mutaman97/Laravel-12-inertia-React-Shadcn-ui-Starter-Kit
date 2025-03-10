@@ -4,16 +4,17 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { setMobileSidenav, setOpenSidenav } from '@/context/app-context'
+import { useAppearance } from '@/hooks/use-appearance'
 import { useAppContext } from '@/hooks/useAppContext'
 import { cn } from '@/lib/utils'
 import { Bell, Menu, Moon, Search, Sun } from 'lucide-react'
-import { useTheme } from 'next-themes'
 import { HTMLAttributes } from 'react'
 
 type Props = HTMLAttributes<HTMLDivElement>
 
 const DashboardNavbar = ({ className, ...props }: Props) => {
-  const { setTheme } = useTheme()
+  const { appearance, updateAppearance } = useAppearance()
+
   const [state, dispatch] = useAppContext()
   const { openSidenav, mobileSidenav } = state
 
@@ -57,9 +58,9 @@ const DashboardNavbar = ({ className, ...props }: Props) => {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              <DropdownMenuItem onClick={() => setTheme('light')}>Light</DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setTheme('dark')}>Dark</DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setTheme('system')}>System</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => updateAppearance('light')}>Light</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => updateAppearance('dark')}>Dark</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => updateAppearance('system')}>System</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
 

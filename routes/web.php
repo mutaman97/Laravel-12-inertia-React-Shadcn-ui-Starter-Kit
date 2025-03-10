@@ -9,8 +9,12 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {
-        return Inertia::render('app/dashboard/crm/page');
+        return Inertia::render('app/dashboard/project-management/page');
     })->name('dashboard');
+
+    Route::get('dashboard/analytics', function () {
+        return Inertia::render('app/dashboard/crm/page');
+    })->name('dashboard.analytics');
 });
 
 require __DIR__.'/settings.php';

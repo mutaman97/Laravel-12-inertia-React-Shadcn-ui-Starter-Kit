@@ -1,10 +1,10 @@
-import { ThemeProvider } from '@/components/theme-provider'
+// import { ThemeProvider } from '@/components/theme-provider'
 // import type { Metadata } from 'next'
 // import { Inter } from 'next/font/google'
 import { ReactNode } from 'react'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
 
 // export const metadata: Metadata = {
 //   title: 'Create Next App',
@@ -18,9 +18,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
       {/*<body className={`text-primary text-center md:text-start ${inter.className}`}>*/}
       <body className={`text-primary text-center md:text-start`}>
-        <ThemeProvider enableSystem attribute="class" defaultTheme="dark" disableTransitionOnChange>
-          {children}
-        </ThemeProvider>
+        {/*<ThemeProvider enableSystem attribute="class" defaultTheme="dark" disableTransitionOnChange>*/}
+        {children}
+        {/*</ThemeProvider>*/}
       </body>
     </html>
   )

@@ -3,17 +3,18 @@
 import DonutChart from '@/components/charts/donut-chart'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
+import { useAppearance } from '@/hooks/use-appearance'
 import { cn } from '@/lib/utils'
 import { DollarSign, Euro } from 'lucide-react'
 import { nanoid } from 'nanoid'
-import { useTheme } from 'next-themes'
 import { ElementType, HTMLAttributes } from 'react'
 
 type Props = HTMLAttributes<HTMLDivElement>
 
 const CurrencyCard = ({ className, ...props }: Props) => {
-  const { theme } = useTheme()
-  const colors = theme === 'dark' ? ['#334155', '#94A3B8', '#CBD5E1'] : ['#F8FAFC', '#CBD5E1', '#334155']
+  const { appearance } = useAppearance()
+
+  const colors = appearance === 'dark' ? ['#334155', '#94A3B8', '#CBD5E1'] : ['#F8FAFC', '#CBD5E1', '#334155']
 
   return (
     <Card className={cn('flex flex-col justify-between lg:flex-row lg:items-center', className)} {...props}>

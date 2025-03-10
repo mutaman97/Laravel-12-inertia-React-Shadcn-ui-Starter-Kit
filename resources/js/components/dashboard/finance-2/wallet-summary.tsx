@@ -3,17 +3,17 @@
 import DonutChart from '@/components/charts/donut-chart'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
+import { useAppearance } from '@/hooks/use-appearance'
 import { cn } from '@/lib/utils'
 import { MoreHorizontal } from 'lucide-react'
 import { nanoid } from 'nanoid'
-import { useTheme } from 'next-themes'
 import { HTMLAttributes } from 'react'
 
 type Props = HTMLAttributes<HTMLDivElement>
 
 const WalletSummary = ({ className, ...props }: Props) => {
-  const { theme } = useTheme()
-  const colors = theme === 'dark' ? ['#94A3B8', '#CBD5E1'] : ['#CBD5E1', '#334155']
+  const { appearance } = useAppearance()
+  const colors = appearance === 'dark' ? ['#94A3B8', '#CBD5E1'] : ['#CBD5E1', '#334155']
 
   return (
     <Card className={cn('p-6', className)} {...props}>

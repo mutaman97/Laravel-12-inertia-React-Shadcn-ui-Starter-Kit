@@ -1,5 +1,6 @@
 import '../css/app.css'
 
+import DefaultLayout from '@/app/dashboard/layout'
 import { createInertiaApp } from '@inertiajs/react'
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
 import { ComponentType, ReactNode } from 'react'
@@ -41,13 +42,34 @@ const appName = import.meta.env.VITE_APP_NAME || 'Laravel'
 //   },
 // })
 
+// createInertiaApp({
+//   title: title => `${title} - ${appName}`,
+//   resolve: name => resolvePageComponent(`./pages/${name}.tsx`, import.meta.glob('./pages/**/*.tsx')),
+//   setup({ el, App, props }) {
+//     const root = createRoot(el)
+//
+//     root.render(<App {...props} />)
+//   },
+//   progress: {
+//     color: '#4B5563',
+//   },
+// })
+
 createInertiaApp({
   title: title => `${title} - ${appName}`,
-  resolve: name => resolvePageComponent(`./pages/${name}.tsx`, import.meta.glob('./pages/**/*.tsx')),
+  resolve: async name => {
+    const page = await resolvePageComponent(`./pages/${name}.tsx`, import.meta.glob('./pages/**/*.tsx'))
+
+    // ✅ Set the default layout
+    // If no layout is defined, set DefaultLayout
+    page.default.layout = page.default.layout || (page => <DefaultLayout>{page}</DefaultLayout>)
+
+    return page
+  },
   setup({ el, App, props }) {
     const root = createRoot(el)
 
-    root.render(<App {...props} />)
+    root.render(<App {...props} />, el)
   },
   progress: {
     color: '#4B5563',

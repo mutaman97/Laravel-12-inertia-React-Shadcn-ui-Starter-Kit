@@ -3,12 +3,13 @@
 import DonutChart from '@/components/charts/donut-chart'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
+import { useAppearance } from '@/hooks/use-appearance'
 import { MoreHorizontal } from 'lucide-react'
-import { useTheme } from 'next-themes'
 
 const Reports = ({ className }: { className?: string }) => {
-  const { theme } = useTheme()
-  const colors = theme === 'dark' ? ['#94A3B8', '#CBD5E1'] : ['#CBD5E1', '#334155']
+  const { appearance } = useAppearance()
+
+  const colors = appearance === 'dark' ? ['#94A3B8', '#CBD5E1'] : ['#CBD5E1', '#334155']
 
   return (
     <Card className={className}>

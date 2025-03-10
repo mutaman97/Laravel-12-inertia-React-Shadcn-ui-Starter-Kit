@@ -14,12 +14,12 @@ const Layout = ({ children }: { children: ReactNode }) => {
         <MobileSidebar />
 
         <div className="w-full">
-          <div className="mx-auto w-full max-w-[1200px]">
+          <div className="mx-auto w-full max-w-[1600px]">
             <DashboardNavbar className="p-6 pb-0" />
           </div>
 
           <ScrollArea className="h-[calc(100vh-102px)]">
-            <div className="mx-auto w-full max-w-[1200px] p-6">
+            <div className="mx-auto w-full max-w-[1600px] p-6">
               {children}
 
               <Footer className="mt-7" />
