@@ -99,11 +99,11 @@
     --border: oklch(0.922 0 0);
     --input: oklch(0.922 0 0);
     --ring: oklch(0.87 0 0);
-    --chart-1: oklch(0.646 0.222 41.116);
-    --chart-2: oklch(0.6 0.118 184.704);
-    --chart-3: oklch(0.398 0.07 227.392);
-    --chart-4: oklch(0.828 0.189 84.429);
-    --chart-5: oklch(0.769 0.188 70.08);
+    --chart-1: 49 60% 52%;
+    --chart-2: 39 100% 50%;
+    --chart-3: 45 100% 75%;
+    --chart-4: 30 100% 60%;
+    --chart-5: 10 100% 50%;
     --radius: 0.5rem;
     --sidebar: oklch(0.985 0 0);
     --sidebar-foreground: oklch(0.145 0 0);
@@ -139,11 +139,11 @@
     --border: oklch(0.269 0 0);
     --input: oklch(0.269 0 0);
     --ring: oklch(0.439 0 0);
-    --chart-1: oklch(0.488 0.243 264.376);
-    --chart-2: oklch(0.696 0.17 162.48);
-    --chart-3: oklch(0.769 0.188 70.08);
-    --chart-4: oklch(0.627 0.265 303.9);
-    --chart-5: oklch(0.645 0.246 16.439);
+    --chart-1: 49 60% 52%;
+    --chart-2: 39 100% 60%;
+    --chart-3: 45 100% 75%;
+    --chart-4: 30 100% 75%;
+    --chart-5: 10 100% 75%;
     --sidebar: oklch(0.205 0 0);
     --sidebar-foreground: oklch(0.985 0 0);
     --sidebar-primary: oklch(0.985 0 0);
@@ -157,103 +157,12 @@
     --icon-active: 210, 40%, 98%;
 }
 
-
 @layer base {
+    * {
+        @apply border-border;
+    }
+
     body {
-        @apply bg-background text-foreground scroll-smooth;
-    }
-
-    h1 {
-        @apply text-[96px] font-medium;
-        line-height: 112px;
-    }
-    h2 {
-        @apply text-[72px] font-medium;
-        line-height: 88px;
-    }
-    h3 {
-        @apply text-[60px] font-medium;
-        line-height: 72px;
-    }
-    h4 {
-        @apply text-[48px] font-medium;
-        line-height: 60px;
-    }
-    h5 {
-        @apply text-[36px] font-medium;
-        line-height: 40px;
-    }
-    h6 {
-        @apply text-[30px] font-medium;
-        line-height: 36px;
+        @apply bg-background text-foreground;
     }
 }
-
-/* Circle progress */
-.circle-progress {
-    @apply fill-none stroke-primary;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-/* Swiper pagination style */
-.teams .swiper-pagination {
-    @apply -mb-2.5;
-}
-
-.teams .swiper-pagination-bullet {
-    @apply w-2 h-2 bg-icon-muted transition-all duration-300;
-}
-
-.teams .swiper-pagination-bullet-active {
-    @apply w-3 h-3 bg-icon-active;
-}
-
-/* about slider */
-.aboutUsTestimonials .swiper-pagination {
-    @apply !bottom-[100px] md:!bottom-[120px];
-}
-
-.aboutUsTestimonials .swiper-pagination-bullet {
-    @apply w-8 md:w-[60px] h-10 md:h-[60px] rounded-full transition-all duration-100 overflow-hidden;
-}
-
-.aboutUsTestimonials .swiper-pagination-bullet-active {
-    @apply w-12 md:w-[100px] h-12 md:h-[100px] shadow;
-}
-
-/* faqs-cta */
-.faqs-cta {
-    background: var(
-            --tailwindcss-color-palette-slate-gradient-2,
-            linear-gradient(90deg, rgba(241, 245, 249, 0) 0%, #c6d6e7 100%)
-    );
-}
-
-/* apex chart style */
-.apexcharts-canvas .apexcharts-tooltip {
-    @apply dark:!text-primary-foreground;
-}
-/* apexcharts-tooltip-title */
-/* apexcharts-tooltip-series-group */
-.apexcharts-canvas .apexcharts-tooltip-marker {
-    @apply dark:!bg-primary-foreground;
-}
-/* apexcharts-tooltip-text */
-
-.actionLessLineChart .apexcharts-xaxis,
-.apexcharts-xaxis-tick {
-    display: none !important;
-}
-
-/* vectorMap style */
-.vectorMap svg path {
-    @apply outline-none cursor-pointer fill-card-hover hover:fill-primary;
-}
-
-/* Code result viewer */
-.code-result pre {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-}
-

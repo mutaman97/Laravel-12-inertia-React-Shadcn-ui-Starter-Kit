@@ -36,7 +36,7 @@ const SidebarItem = ({
   const isDropdownOpen = dropDown(path)
 
   const itemButton = cn(
-    'text-primary flex h-11 w-full items-center justify-start rounded-full p-3 text-sm font-medium capitalize hover:bg-gray-200',
+    'text-primary flex h-11 w-full items-center justify-start rounded-full p-3 text-sm font-medium capitalize hover:bg-gray-200 dark:hover:bg-gray-700',
     isActive ? 'bg-card' : 'bg-background',
     compact ? 'w-auto' : 'w-full',
     compactSpace

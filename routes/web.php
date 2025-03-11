@@ -9,7 +9,7 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {
-        return Inertia::render('app/dashboard/marketing/page');
+        return Inertia::render('app/tinte/dashboard/products/products');
     })->name('dashboard');
 
     Route::get('dashboard/analytics', function () {

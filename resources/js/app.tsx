@@ -2,6 +2,7 @@ import '../css/app.css'
 
 import DefaultLayout from '@/app/dashboard/layout'
 import { createInertiaApp } from '@inertiajs/react'
+import { TooltipProvider } from '@radix-ui/react-tooltip'
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
 import { ComponentType, ReactNode } from 'react'
 import { createRoot } from 'react-dom/client'
@@ -69,7 +70,11 @@ createInertiaApp({
   setup({ el, App, props }) {
     const root = createRoot(el)
 
-    root.render(<App {...props} />, el)
+    root.render(
+      <TooltipProvider>
+        <App {...props} />
+      </TooltipProvider>
+    )
   },
   progress: {
     color: '#4B5563',
