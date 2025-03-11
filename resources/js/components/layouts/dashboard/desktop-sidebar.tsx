@@ -5,10 +5,10 @@ import { useAppContext } from '@/hooks/useAppContext'
 import routes from '@/lib/routes'
 import { cn } from '@/lib/utils'
 import { Link, usePage } from '@inertiajs/react'
-import { useEffect, useState } from 'react'
+import { JSX, useEffect, useState } from 'react'
 import SidebarItem from './sidebar-item'
 
-const DesktopSidebar: React.FC = () => {
+const DesktopSidebar: () => JSX.Element = () => {
   const { url } = usePage()
   const [state] = useAppContext()
   const { openSidenav } = state
@@ -17,6 +17,9 @@ const DesktopSidebar: React.FC = () => {
 
   const handleOpen = (value: string | null) => {
     setOpen(value === open ? null : value)
+  }
+  const dropDown = (path: string) => {
+    return open === path // Return true if the current path matches the open state
   }
 
   useEffect(() => {
@@ -80,6 +83,7 @@ const DesktopSidebar: React.FC = () => {
                     compactSpace={compactSpace}
                     compactHide={compactHide}
                     handleOpen={handleOpen}
+                    dropDown={dropDown}
                   />
                 </li>
               ))}

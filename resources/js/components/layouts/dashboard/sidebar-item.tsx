@@ -3,14 +3,14 @@ import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { Link } from '@inertiajs/react'
 import { ChevronUp } from 'lucide-react'
-import { SVGProps } from 'react'
+import { JSX, SVGProps } from 'react'
 
 interface SidebarItemProps {
   url: string
   path: string
   name: string
   compact: boolean
-  Icon: (props: SVGProps) => JSX.Element
+  Icon: (props: SVGProps<SVGSVGElement> & { className?: string }) => (props: SVGProps) => JSX.Element
   childItems: { path: string; name: string }[]
   compactSpace: string
   compactHide: string
@@ -19,7 +19,7 @@ interface SidebarItemProps {
   navItemClick?: () => void
 }
 
-const SidebarItem: React.FC<SidebarItemProps> = ({
+const SidebarItem = ({
   url,
   path,
   Icon,
@@ -28,15 +28,15 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
   childItems,
   compactSpace,
   compactHide,
-  dropDown = () => false, // Default function to avoid errors
+  dropDown = () => false,
   handleOpen,
   navItemClick = () => {},
-}) => {
+}: SidebarItemProps) => {
   const isActive = path === url
   const isDropdownOpen = dropDown(path)
 
   const itemButton = cn(
-    'hover:bg-card-hover text-primary flex h-11 w-full items-center justify-start rounded-full p-3 text-sm font-medium capitalize',
+    'text-primary flex h-11 w-full items-center justify-start rounded-full p-3 text-sm font-medium capitalize hover:bg-gray-200',
     isActive ? 'bg-card' : 'bg-background',
     compact ? 'w-auto' : 'w-full',
     compactSpace
